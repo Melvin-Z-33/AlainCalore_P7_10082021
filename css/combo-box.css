@@ -1,0 +1,216 @@
+.select {
+    display: block;
+    /* position:relative; */
+    font-family: sans-serif;
+    font-size: small;
+    font: -moz-field;
+    height: 169px;
+    width: 170px;
+    border-radius: 0px;
+    color: white;
+
+
+}
+
+.select>input {
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+.select__dropdown {
+    display: flex;
+    position: relative;
+    list-style: none;
+    margin-top: 20px;
+    padding: 1px;
+    background: Field;
+    color: FieldText;
+    border: 1px solid ThreeDShadow;
+    border-top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    height: 397px;
+    width: 667px;
+    border-radius: 5px;
+}
+
+
+
+
+/*! LISTE MENU */
+.ul-ingredient {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    height: 397px;
+    width: 667px;
+    left: 0px;
+    top: 0px;
+    border-radius: 5px;
+
+}
+
+
+.li-ingredient {
+    height: 22px;
+    width: 200px;
+    left: 491px;
+    top: 71px;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin: 5px;
+
+}
+
+.fa-chevron-down {
+    position: absolute; 
+   
+    right:15px;
+    top: 78px;
+    
+
+
+}
+
+.reverse-chevron {
+    transform: rotate(180deg) !important;
+    top:76px
+}
+
+
+.select__dropdown:empty {
+    display: none;
+}
+
+.select__dropdown [role="option"],
+.select__dropdown strong {
+    padding: 0.2em 0.4em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: default;
+}
+
+.select__dropdown [role="option"].select--selected,
+.select__dropdown [role="option"]:hover {
+    background: rgba(128, 128, 128, .2);
+    color: inherit;
+}
+
+.select__dropdown [role="option"].select--has-focus {
+    background: Highlight;
+    color: HighlightText;
+}
+
+.select__dropdown [role="option"][aria-disabled="true"] {
+    background: transparent;
+    color: GrayText;
+}
+
+.select__dropdown ul {
+    margin: 0;
+    padding: 0;
+}
+
+.select__dropdown ul [role="option"] {
+    padding-left: 2em;
+}
+
+
+
+.select__input {
+    position: relative;
+}
+
+.select__input>ul {
+    display: flex;
+    flex-wrap:wrap;
+    height:100px;
+    width:252px;
+    padding: 0;
+    margin: 0;
+}
+
+.select__input li {
+    display: inline-block;
+    margin: 10px 0.2em;
+    margin-inline-start: 0;
+    padding: 0 0.2em;
+    background: rgba(128, 128, 128, .2);
+    color: inherit;
+    border: 1px solid ThreeDShadow;
+    border-radius: 0.3em;
+    cursor: default;
+    height: 37px;
+    width: 107px;
+    left: 0px;
+    top: 0px;
+    border-radius: 5px;
+    background: #3282F7;
+    color: white;
+    text-align: center;
+    line-height: 37px;
+
+
+}
+
+
+
+
+/***************  CUSTOM CSS ***/
+.combo-box {
+    height: 69px;
+    width: 170px;
+    left: 100px;
+    top: 298px;
+    border-radius: 5px;
+    border: none;
+
+}
+
+.combo-box-open {
+    height: 397px;
+    width: 667px;
+    left: 98px;
+    top: 238px;
+
+
+}
+
+input {
+    color: #fff;
+}
+
+input::placeholder {
+    color: #fff;
+    height: 22px;
+    width: 100%;
+    left: 15px;
+    top: 23px;
+    padding: 20px;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    /* text-align: center; */
+}
+
+.input-opacity {
+    color: grey !important;
+}
+
+.fa-times-circle {
+    color: white;
+    margin-left: 15px;
+}
+
+
