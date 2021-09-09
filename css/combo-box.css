@@ -1,6 +1,6 @@
-.select {
+/* .select {
     display: block;
-    /* position:relative; */
+    position:relative;
     font-family: sans-serif;
     font-size: small;
     font: -moz-field;
@@ -40,7 +40,7 @@
 
 
 /*! LISTE MENU */
-.ul-ingredient {
+/* .ul-ingredient {
     display: flex;
     flex-wrap: wrap;
     height: auto;
@@ -70,18 +70,18 @@
 }
 
 .fa-chevron-down {
-    position: absolute; 
-   
-    right:15px;
+    position: absolute;
+
+    right: 15px;
     top: 78px;
-    
+
 
 
 }
 
 .reverse-chevron {
     transform: rotate(180deg) !important;
-    top:76px
+    top: 76px
 }
 
 
@@ -131,9 +131,9 @@
 
 .select__input>ul {
     display: flex;
-    flex-wrap:wrap;
-    height:100px;
-    width:252px;
+    flex-wrap: wrap;
+    height: 100px;
+    width: 252px;
     padding: 0;
     margin: 0;
 }
@@ -153,14 +153,13 @@
     left: 0px;
     top: 0px;
     border-radius: 5px;
-    background: #3282F7;
+    background: #f732b5;
     color: white;
     text-align: center;
     line-height: 37px;
 
 
-}
-
+} */
 
 
 
@@ -214,3 +213,49 @@ input::placeholder {
 }
 
 
+/* !TEEESSTTTTT */
+
+.show {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.unshow {
+    display: none;
+}
+
+#ing {
+    overflow-y: hidden;
+    width: 1400px;
+    height: 400px;
+
+
+    height: 400px;
+    color: #fff;
+    column-count: 2;
+    column-width: 100px;
+
+}
+
+
+
+option {
+    color: #fff;
+    cursor: pointer;
+}
+
+a {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+li {
+    display: block;
+    margin: 5px;
+    background-color: blue;
+    width: 200px;
+    color: white;
+    cursor: pointer;
+
+}

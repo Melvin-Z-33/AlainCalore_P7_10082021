@@ -1,34 +1,36 @@
 import * as app from './app.js';
-export let arrayOfObjets = [];
+import * as comboBox from './combo-box.js';
+export let aarrayOfObjetsFromSelection = [];
 
-export const displayCards = (arrayOfRecipe) =>{
+export const displayCards = (arrayOfRecipe) => {
+	app.results.innerHTML = '';
 
-  document.querySelector('#result-cards').innerHTML = '';
+	let arrayOfIngredients = '';
+	let totalofIngredients = [];
+	let count = 1;
 
-  let arrayOfIngredients = '';
-  let totalofIngredients=[];
-  let count = 1;
+	comboBox.pannelIngredients.innerHTML = '';
 
-  app.comboIngredient.innerHTML = "";
+	for (let objet of arrayOfRecipe) {
+		for (let ingredient of objet.ingredients) {
+			if (
+				ingredient.hasOwnProperty('ingredient') &&
+				ingredient.hasOwnProperty('quantity') &&
+				ingredient.hasOwnProperty('unit')
+			) {
+				arrayOfIngredients += `<p><span class="lato-bold">${ingredient.ingredient}</span> : ${ingredient.quantity} ${ingredient.unit}</p> `;
+			} else if (
+				ingredient.hasOwnProperty('ingredient') &&
+				ingredient.hasOwnProperty('quantity')
+			) {
+				arrayOfIngredients += `<p><span class="lato-bold">${ingredient.ingredient}</span> : ${ingredient.quantity} </p> `;
+			} else if (ingredient.hasOwnProperty('ingredient')) {
+				arrayOfIngredients += `<p><span class="lato-bold">${ingredient.ingredient}</span>  </p> `;
+			}
+			totalofIngredients.push(ingredient.ingredient);
+		}
 
-  for (let objet of arrayOfRecipe) {
-    for (let ingredient of objet.ingredients){
-
-      if (
-      ingredient.hasOwnProperty('ingredient') &&
-      ingredient.hasOwnProperty('quantity') &&
-      ingredient.hasOwnProperty('unit')
-      ) {
-      arrayOfIngredients += `<p><span class="lato-bold">${ingredient.ingredient}</span> : ${ingredient.quantity} ${ingredient.unit}</p> `;
-      } else if (ingredient.hasOwnProperty('ingredient') && ingredient.hasOwnProperty('quantity')) {
-      arrayOfIngredients += `<p><span class="lato-bold">${ingredient.ingredient}</span> : ${ingredient.quantity} </p> `;
-      } else if (ingredient.hasOwnProperty('ingredient')) {
-      arrayOfIngredients += `<p><span class="lato-bold">${ingredient.ingredient}</span>  </p> `;
-      }
-      totalofIngredients.push(ingredient.ingredient);
-    }
-
-  let htmlforCards = `
+		let htmlforCards = `
     <div class="card  col-sm-12 col-md-3 mx-4 ">
       <img class="" alt="" src="http://via.placeholder.com/10">
       <div class="card-body container">
@@ -43,45 +45,38 @@ export const displayCards = (arrayOfRecipe) =>{
       </div>
     </div>
         `;
-    document.querySelector('#result-cards').insertAdjacentHTML('beforeend', htmlforCards);
+		document.querySelector('#result-cards').insertAdjacentHTML('beforeend', htmlforCards);
 
-    arrayOfIngredients = '';
-    arrayOfObjets.push(objet);
-    count++;
+		arrayOfIngredients = '';
 
-  }
-  console.log(arrayOfObjets)
+		count++;
+	}
 
-  totalofIngredients.map((recipe) => app.comboIngredient
-		.insertAdjacentHTML('beforeend', `<option class="col-4" value="${recipe}"  >${recipe}</option>`));
-
+	totalofIngredients.map((recipe) =>
+		comboBox.pannelIngredients.insertAdjacentHTML(
+			'beforeend',
+			`<option class="col-4 combobox-ingredient" value="${recipe}"  >${recipe}</option>`,
+		),
+	);
 };
 
+export const showAllIngredients = async () => {
+	await app.fetchRecipes();
 
+	let arrayDeleteElementDuplicate = [];
+	let arrayForIngredients = [];
 
-// 1) Si un tri est utilise
-// SI dans la ession storage
+	for (let recipe of app.bookOfRecipes.recipes) {
+		for (let ingredient of recipe.ingredients) {
+			arrayForIngredients.push(ingredient.ingredient);
+		}
+		arrayDeleteElementDuplicate = [...new Set(arrayForIngredients)];
+	}
 
-//2)creer un tableau d'objet
-//3) utiliser methode de tri sur tableau d'objet
-
-
-
-export const showAllIngredients = () => {
-  let arrayDeleteElementDuplicate = [];
-  let arrayForIngredients = [];
-
-
-		for (let recipe of app.bookOfRecipes.recipes) {
-
-      for (let ingredient of recipe.ingredients){
-				arrayForIngredients.push(ingredient.ingredient)
-			}
-			arrayDeleteElementDuplicate = [...new Set(arrayForIngredients)]
-
-    }
-
-		arrayDeleteElementDuplicate.map((recipe) => app.comboIngredient
-		.insertAdjacentHTML('beforeend', `<option class="col-4" value="${recipe}" >${recipe}</option>`))
-  }
-
+	arrayDeleteElementDuplicate.map((recipe) =>
+		comboBox.pannelIngredients.insertAdjacentHTML(
+			'beforeend',
+			`<option class="col-4 combobox-ingredient" value="${recipe}" >${recipe}</option>`,
+		),
+	);
+};

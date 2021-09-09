@@ -33,13 +33,12 @@
 		<!-- CUSTOM CSS -->
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="stylesheet" href="./css/combo-box.css" />
+		<!-- <link rel="stylesheet" href="./css/combo-box.css" /> -->
 		<!-- JAVASCRIPT -->
-		<script defer type='module' src="./js/app.js"></script>
+		<script defer type="module" src="./js/app.js"></script>
 
 		<title>les petits plats</title>
 	</head>
-
-
 
 	<body class="mx-auto">
 		<!---------- HEADER SECTION ---------->
@@ -50,6 +49,7 @@
 			</div>
 			<div class="input-group mt-5 px-3 d-flex align-items-center" id="search">
 				<input
+					id="header__input"
 					class="form-control form-control-lg"
 					type="text"
 					placeholder="Rechercher un ingrédient,appareil, ustensiles ou une recette"
@@ -58,28 +58,43 @@
 			</div>
 		</header>
 
-
 		<!---------- MAIN SECTION ---------->
 		<main class="mt-4 pt-4">
-
 			<div class="main-header mb-5 d-flex flex-wrap ps-2">
 				<div class="container-fluid-mt5">
-					<select multiple data-select id="ing" class="bg-primary flex-wrap  container ">
-					</select>
+					<div
+						class="select"
+						role="combobox"
+						aria-expanded="false"
+						aria-has-popup="listbox"
+					>
+						<ul id="element-selected"></ul>
+						<input
+							id="box_ingredients"
+							class="combo-box bg-primary lato-bold"
+							placeholder="Ingredient"
+							aria-autocomplete="list"
+							autocomplete="on"
+							type="text"
+							name="cc1"
+							list=""
+							style="border-radius: 5px 5px 0px 0px"
+							aria-activedescendant=""
+							tabindex="-1"
+						/>
+						<i id="arrow" class="fas fa-chevron-down fa-2x"></i>
+					</div>
 
+					<datalist multiple="" data-select="" id="ing" class="bg-primary unshow">
+					</datalist>
 				</div>
 			</div>
 
-			<div class="container-fluid">
-				<div
-					id="result-cards"
-					class="cards row d-flex justify-content-between flex-wrap">
-				</div>
-			</div>
-
+			<section
+				id="result-cards"
+				class="cards row d-flex justify-content-between flex-wrap"
+			></section>
 		</main>
-
-
 
 		<!-- JavaScript Bundle with Popper - Bootstrap -->
 		<script

@@ -1,10 +1,9 @@
 import * as app from './app.js';
 
-
 //SEARCH GENERAL
 export const searchRecipes = async () => {
 	await app.fetchRecipes();
-    let element;
+	let element;
 
 	app.results.innerHTML = app.bookOfRecipes.recipes
 		.filter((recipe) => recipe.name.toLowerCase().includes(app.searchTerm.toLowerCase()))
@@ -17,7 +16,10 @@ export const searchRecipes = async () => {
 					element.hasOwnProperty('unit')
 				) {
 					arrayOfIngredients += `<p><span class="lato-bold">${element.ingredient}</span> : ${element.quantity} ${element.unit}</p> `;
-				} else if (element.hasOwnProperty('ingredient') && element.hasOwnProperty('quantity')) {
+				} else if (
+					element.hasOwnProperty('ingredient') &&
+					element.hasOwnProperty('quantity')
+				) {
 					arrayOfIngredients += `<p><span class="lato-bold">${element.ingredient}</span> : ${element.quantity} </p> `;
 				} else if (element.hasOwnProperty('ingredient')) {
 					arrayOfIngredients += `<p><span class="lato-bold">${element.ingredient}</span>  </p> `;
