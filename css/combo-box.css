@@ -1,19 +1,36 @@
-/***************  CUSTOM CSS ***/
-.combo-box {
-    height: 69px;
-    width: 170px;
-    left: 100px;
-    top: 298px;
+option {
+    color: #fff;
+    cursor: pointer;
+}
+
+a {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    display: block;
+    width: 117px;
+    height: 50px;
+    line-height: 50px;
     border-radius: 5px;
-    border: none;
+    margin: 5px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    position: relative;
 
 }
 
-.combo-box-open {
-    height: 397px;
-    width: 667px;
-    left: 98px;
-    top: 238px;
+.fa-times-circle {
+    position: absolute;
+    top: 15px;
+    font-size: 20px;
 
 
 }
@@ -38,6 +55,52 @@ input::placeholder {
     /* text-align: center; */
 }
 
+
+/* Combo-box General */
+.main-header__box-filter {
+    position: relative;
+    width: 170px;
+}
+
+
+.container-fluid-mt5 {
+    margin: 0 15px;
+}
+
+.combo-box {
+    height: 69px;
+    width: 100%;
+    left: 100px;
+    top: 298px;
+    border-radius: 5px;
+    border: none;
+    line-height: 21.6px;
+}
+
+.combo-box-open {
+    height: 397px;
+    width: 667px;
+    left: 98px;
+    top: 238px;
+
+}
+
+
+.fa-chevron-down {
+    position: absolute;
+    top: 26px;
+    right: 12px;
+    font-size: 21px;
+
+}
+
+.reverse-chevron {
+    transform: rotate(180deg);
+}
+
+
+
+
 .input-opacity {
     color: grey !important;
 }
@@ -48,7 +111,18 @@ input::placeholder {
 }
 
 
-/* !TEEESSTTTTT */
+#ing {
+    overflow-y: hidden;
+    width: 1400px;
+    height: 400px;
+    height: 400px;
+    color: #fff;
+    column-count: 2;
+    column-width: 100px;
+
+}
+
+/* class added by javascript */
 
 .show {
     display: flex;
@@ -59,38 +133,6 @@ input::placeholder {
     display: none;
 }
 
-#ing {
-    overflow-y: hidden;
-    width: 1400px;
-    height: 400px;
-
-
-    height: 400px;
-    color: #fff;
-    column-count: 2;
-    column-width: 100px;
-
-}
-
-
-
-option {
-    color: #fff;
-    cursor: pointer;
-}
-
-a {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-li {
-    display: block;
-    margin: 5px;
-    background-color: blue;
-    width: 200px;
-    color: white;
-    cursor: pointer;
-
+.opacituy {
+    color: rgba(220, 220, 220, 0.698)
 }

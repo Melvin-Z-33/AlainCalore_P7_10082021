@@ -1,12 +1,20 @@
 import * as app from './app.js';
 import * as comboBox from './combo-box.js';
 export let aarrayOfObjetsFromSelection = [];
+export let totalofIngredients = [];
+
+
+
+
+
+
+
 
 export const displayCards = (arrayOfRecipe) => {
 	app.results.innerHTML = '';
 
 	let arrayOfIngredients = '';
-	let totalofIngredients = [];
+	
 	let count = 1;
 
 	comboBox.pannelIngredients.innerHTML = '';
@@ -57,13 +65,15 @@ export const displayCards = (arrayOfRecipe) => {
 			'beforeend',
 			`<option class="col-4 combobox-ingredient" value="${recipe}"  >${recipe}</option>`,
 		),
+
 	);
 };
+// console.log(totalofIngredients)
 
+export let arrayDeleteElementDuplicate = [];
 export const showAllIngredients = async () => {
 	await app.fetchRecipes();
 
-	let arrayDeleteElementDuplicate = [];
 	let arrayForIngredients = [];
 
 	for (let recipe of app.bookOfRecipes.recipes) {
@@ -79,4 +89,5 @@ export const showAllIngredients = async () => {
 			`<option class="col-4 combobox-ingredient" value="${recipe}" >${recipe}</option>`,
 		),
 	);
+	return arrayDeleteElementDuplicate;
 };

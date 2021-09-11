@@ -31,6 +31,7 @@
 			crossorigin="anonymous"
 		/>
 		<!-- CUSTOM CSS -->
+		<link rel="stylesheet" href=".css/reset.css">
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="stylesheet" href="./css/combo-box.css" />
 		<!-- <link rel="stylesheet" href="./css/combo-box.css" /> -->
@@ -69,10 +70,11 @@
 						aria-has-popup="listbox"
 					>
 						<ul id="element-selected"></ul>
+						<div class="main-header__box-filter">
 						<input
 							id="box_ingredients"
 							class="combo-box bg-primary lato-bold"
-							placeholder="Ingredient"
+							placeholder=" "
 							aria-autocomplete="list"
 							autocomplete="on"
 							type="text"
@@ -81,13 +83,78 @@
 							style="border-radius: 5px 5px 0px 0px"
 							aria-activedescendant=""
 							tabindex="-1"
+							
 						/>
-						<i id="arrow" class="fas fa-chevron-down fa-2x"></i>
+						<i id="arrow" class="fas fa-chevron-down text-white"></i>
+					</div>
 					</div>
 
 					<datalist multiple="" data-select="" id="ing" class="bg-primary unshow">
 					</datalist>
 				</div>
+
+				<div class="container-fluid-mt5">
+					<div
+						class="select"
+						role="combobox"
+						aria-expanded="false"
+						aria-has-popup="listbox"
+					>
+						<ul id="element-selected"></ul>
+						<div class="main-header__box-filter">
+						<input
+							id="box_appareil"
+							class="combo-box bg-success lato-bold"
+							placeholder="Appareil"
+							aria-autocomplete="list"
+							autocomplete="on"
+							type="text"
+							name="cc1"
+							list=""
+							style="border-radius: 5px 5px 0px 0px"
+							aria-activedescendant=""
+							tabindex="-1"
+							
+						/>
+						<i id="arrow" class="fas fa-chevron-down text-white"></i>
+					</div>
+					</div>
+
+					<datalist multiple="" data-select="" id="ing" class="bg-primary unshow">
+					</datalist>
+				</div>
+
+				<div class="container-fluid-mt5">
+					<div
+						class="select"
+						role="combobox"
+						aria-expanded="false"
+						aria-has-popup="listbox"
+					>
+						<ul id="element-selected"></ul>
+						<div class="main-header__box-filter">
+						<input
+							id="box_ustensiles"
+							class="combo-box bg-danger lato-bold"
+							placeholder="Ustensiles"
+							aria-autocomplete="list"
+							autocomplete="on"
+							type="text"
+							name="cc1"
+							list=""
+							style="border-radius: 5px 5px 0px 0px"
+							aria-activedescendant=""
+							tabindex="-1"
+							
+						/>
+						<i id="arrow" class="fas fa-chevron-down text-white"></i>
+					</div>
+					</div>
+
+					<datalist multiple="" data-select="" id="ing" class="bg-primary unshow">
+					</datalist>
+				</div>
+				
 			</div>
 
 			<section

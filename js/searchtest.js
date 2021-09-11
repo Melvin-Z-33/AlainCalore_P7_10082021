@@ -20,7 +20,8 @@ export const searchTest = async (array) => {
 			}
 		}
 		showcard.displayCards(displayArrayfromIngredients);
-	} else if (array.length === 2) {
+	}
+	else if (array.length === 2) {
 		for (let objet of app.bookOfRecipes.recipes) {
 			for (let ingredient of objet.ingredients) {
 				if (
