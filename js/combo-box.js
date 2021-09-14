@@ -5,10 +5,16 @@ import * as searchtest from './searchtest.js';
 
 
 export const inputIngredient = document.getElementById('box_ingredients');
-export const pannelIngredients = document.getElementById('ing');
+export const inputAppliance = document.getElementById('box_appliance');
+export const inputUstensils = document.getElementById('box_ustensiles');
+export const pannelIngredients = document.getElementById('ingredient');
+export const pannelAppliances = document.getElementById('appareil');
+export const pannelUstensils = document.getElementById('ustensile');
 export const chevron = document.getElementById('arrow')
+export const selectBox = document.querySelectorAll('.select')
 export let allElementsLi;
 export let allIngredientsFilters;
+
 
 
 
@@ -17,10 +23,9 @@ const filterArray = (Arr, Input) => {
 }
 
 
-const showAutocompletion = (array) => {
-
-	pannelIngredients.innerHTML =' '
-	array.map((element) =>pannelIngredients.insertAdjacentHTML(
+const showAutocompletion = (array, pannel) => {
+	pannel.innerHTML =' '
+	array.map((element) =>pannel.insertAdjacentHTML(
 	'beforeend',
 	`<option class="col-4 combobox-ingredient" value="${element}" >${element}</option>`,
 	),
@@ -29,34 +34,60 @@ const showAutocompletion = (array) => {
 
 
 
-export const showPannelIngredients = (e) => {
+export const showPannel = (e) => {
+	let myDatalist= e.target.parentNode.parentNode.nextElementSibling;
 
-	pannelIngredients.classList.toggle('show');
-	pannelIngredients.classList.toggle('unshow');
+	//Display Pannel
+	myDatalist.classList.toggle('show');
+	myDatalist.classList.toggle('unshow');
 
-
-	if (pannelIngredients.classList.contains('show')){
-		inputIngredient.placeholder = 'Recherche un ingrédient';
-		chevron.classList.toggle('reverse-chevron');
+	if (myDatalist.classList.contains('show')){
+		e.target.placeholder = `'Recherche un ${myDatalist.id}'`;
+		e.target.nextElementSibling.classList.toggle('reverse-chevron');
 		e.path[1].style.width = "370px";
-		inputIngredient.classList.add("opacity")
+		e.target.classList.add("opacity")
 
-	inputIngredient.addEventListener('input', (e) => {
+
+	//Autocompletion
+	e.target.addEventListener('input', (e) => {
+		let table=" ";
 		let term = e.target.value;
-		let data =filterArray(showcards.arrayDeleteElementDuplicate, term);
-		showAutocompletion(data);
-		}
-	);
 
-	}else if (!pannelIngredients.classList.contains('show')) {
-		inputIngredient.placeholder = 'Ingrédients';
-		chevron.classList.toggle('reverse-chevron')
+		switch (myDatalist.id) {
+			case "ingredient":
+			table = filterArray(showcards.totalofIngredients, term);
+			showAutocompletion(table,myDatalist);
+			break;
+			case "appareil":
+			table = filterArray(showcards.totalofAppliances, term);
+				showAutocompletion(table,myDatalist);
+			break;
+			case "ustensile":
+			table = filterArray(showcards.totalofUstensils, term);
+				showAutocompletion(table,myDatalist);
+			break;
+			default:
+			console.log("renard");
+			break;
+		}
+
+	});
+
+	}else if (!e.target.classList.contains('show')) {
+		e.target.placeholder = `${myDatalist.id}`;
+		e.target.nextElementSibling.classList.toggle('reverse-chevron')
 		e.path[1].style.width = "170px";
-		inputIngredient.classList.remove("opacity");
+		e.target.classList.remove("opacity");
 	}
 
 };
-inputIngredient.addEventListener('click', showPannelIngredients);
+inputIngredient.addEventListener('click', showPannel);
+inputAppliance.addEventListener('click', showPannel);
+inputUstensils.addEventListener('click', showPannel);
+
+
+
+
 
 
 
@@ -78,7 +109,7 @@ export const searchIngredients = async (li) => {
 
 
 
-
+//FILTER MANAGEMENT
 export const toSelectIngredient = () => {
 
 	const ingredientToSelect = document.querySelectorAll('.combobox-ingredient');
@@ -123,7 +154,7 @@ export const toSelectIngredient = () => {
 						el.remove();
 							if (allIngredientsFilters.length === 0){
 								searchGeneral.searchRecipes();
-								showcards.showAllIngredients();
+								// showcards.showAllIngredients();
 							console.log(allIngredientsFilters)
 							el.remove();
 							}

@@ -28,7 +28,7 @@ headerInput.addEventListener('input', (e) => {
 });
 
 comboBox.inputIngredient.placeholder = 'Ingrédients';
-showcards.showAllIngredients();
+//showcards.showAllIngredients();
 
 //SELECT BOX INGREDIENT
 comboBox.inputIngredient.onfocus = () => {
@@ -40,8 +40,6 @@ comboBox.inputIngredient.onfocus = () => {
 
 
 
-
-
 window.onload = () =>{
 	sessionStorage.clear();
 
@@ -49,8 +47,6 @@ window.onload = () =>{
 
 
 
-
-//COMBO-BOX addenventlistener
 
 
 

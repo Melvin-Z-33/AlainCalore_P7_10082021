@@ -2,6 +2,10 @@ import * as app from './app.js';
 import * as showcard from './show-cards.js';
 import * as comboBox from './combo-box.js';
 
+
+
+//* TEST RECHERCHE  AVEC LES FILTRES
+
 export const searchTest = async (array) => {
 	await app.fetchRecipes();
 
