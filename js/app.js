@@ -1,7 +1,7 @@
 /* eslint-disable */
-import * as searchGeneral from './search-general.js';
 import * as comboBox from './combo-box.js';
 import * as showcards from './show-cards.js';
+import * as searchGeneral from './search-general.js';
 import * as searchtest from './searchtest.js';
 
 export const headerInput = document.getElementById('header__input');

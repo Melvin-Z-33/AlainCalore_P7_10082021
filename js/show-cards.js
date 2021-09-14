@@ -1,23 +1,26 @@
 import * as app from './app.js';
 import * as comboBox from './combo-box.js';
+
 export let aarrayOfObjetsFromSelection = [];
 export let totalofIngredients = [];
 
+const results = document.getElementById('result-cards');
+const pannelIngredients = document.getElementById('ing');
 
 
 
 
 
 
+export const displayCards =  (arrayOfRecipe) => {
 
-export const displayCards = (arrayOfRecipe) => {
-	app.results.innerHTML = '';
+	results.innerHTML = '';
 
 	let arrayOfIngredients = '';
 	
 	let count = 1;
 
-	comboBox.pannelIngredients.innerHTML = '';
+	pannelIngredients.innerHTML = '';
 
 	for (let objet of arrayOfRecipe) {
 		for (let ingredient of objet.ingredients) {
@@ -61,7 +64,7 @@ export const displayCards = (arrayOfRecipe) => {
 	}
 
 	totalofIngredients.map((recipe) =>
-		comboBox.pannelIngredients.insertAdjacentHTML(
+		pannelIngredients.insertAdjacentHTML(
 			'beforeend',
 			`<option class="col-4 combobox-ingredient" value="${recipe}"  >${recipe}</option>`,
 		),
