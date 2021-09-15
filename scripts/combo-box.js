@@ -1,7 +1,7 @@
 import * as searchGeneral from './search-general.js';
 import * as app from './app.js';
 import * as showcards from './show-cards.js';
-import * as searchtest from './searchtest.js';
+import * as searchFilters from './search-filters.js';
 
 
 export const inputIngredient = document.getElementById('box_ingredients');
@@ -13,7 +13,7 @@ export const pannelUstensils = document.getElementById('ustensile');
 export const chevron = document.getElementById('arrow')
 export const selectBox = document.querySelectorAll('.select')
 export let allElementsLi;
-export let allIngredientsFilters;
+
 
 
 
@@ -92,71 +92,71 @@ inputUstensils.addEventListener('click', showPannel);
 
 
 
-export const searchIngredients = async (li) => {
+// export const searchIngredients = async (li) => {
 
-	await app.fetchRecipes();
-	let displayArrayfromIngredients = [];
+// 	await app.fetchRecipes();
+// 	let displayArrayfromIngredients = [];
 
-	for (let objet of app.bookOfRecipes.recipes) {
-		for (let ingredient of objet.ingredients) {
-			if (ingredient.ingredient === li) {
-				displayArrayfromIngredients.push(objet);
-			}
-		}
-	}
-	showcard.displayCards(displayArrayfromIngredients);
-};
+// 	for (let objet of app.bookOfRecipes.recipes) {
+// 		for (let ingredient of objet.ingredients) {
+// 			if (ingredient.ingredient === li) {
+// 				displayArrayfromIngredients.push(objet);
+// 			}
+// 		}
+// 	}
+// 	showcard.displayCards(displayArrayfromIngredients);
+// };
 
 
 
 //FILTER MANAGEMENT
-export const toSelectIngredient = () => {
+export const toSelectFilter = (filters, color, arrayFilter, placeStorage,placeForFilter) => {
 
-	const ingredientToSelect = document.querySelectorAll('.combobox-ingredient');
+
 	let allElementsLi = [];
-	let ingredientFilter = [];
+	let filterSelectioned = [];
 
-	for (let option of ingredientToSelect) {
+	for (let option of filters) {
 		option.onclick = function () {
 			//Creation element Li
 			let newLi = document.createElement('li');
 			let newContentForLi = document.createTextNode(option.value);
 			newLi.appendChild(newContentForLi);
 			newLi.insertAdjacentHTML('beforeend', '<i class="far fa-times-circle"></i>');
-			newLi.classList.add("bg-primary");
-			let currentLi = document.getElementById('element-selected');
+			newLi.classList.add(color);
+			let currentLi = document.getElementById(placeForFilter);
 			currentLi.insertAdjacentElement('beforeend', newLi);
 			allElementsLi = document.querySelectorAll('li');
 
 			//Sort with Li created
-			if (allIngredientsFilters == null || allIngredientsFilters == undefined) {
-				ingredientFilter.push(option.text.toLowerCase());
-				sessionStorage.setItem('storageIngredientFilters', JSON.stringify(ingredientFilter));
-				searchtest.searchTest(ingredientFilter);
-				allIngredientsFilters = JSON.parse(sessionStorage.getItem('storageIngredientFilters'));
+			if (arrayFilter == null || arrayFilter == undefined) {
+				filterSelectioned.push(option.text.toLowerCase());
+				sessionStorage.setItem(placeStorage, JSON.stringify(filterSelectioned));
+				searchFilters.searchWithFilter(filterSelectioned);
+				arrayFilter = JSON.parse(sessionStorage.getItem(placeStorage));
 			} else {
-				allIngredientsFilters.push(option.text.toLowerCase());
-				searchtest.searchTest(allIngredientsFilters);
-				sessionStorage.setItem('storageIngredientFilters', JSON.stringify(allIngredientsFilters));
+				arrayFilter.push(option.text.toLowerCase());
+				searchFilters.searchWithFilter(arrayFilter);
+				sessionStorage.setItem(placeStorage, JSON.stringify(arrayFilter));
 			}
 
 			//Sort with Li deleted
-			allElementsLi.forEach((el) => {
-				el.addEventListener('click', () => {
+			allElementsLi.forEach((elementLi) => {
+				elementLi.addEventListener('click', () => {
 
-					if (allIngredientsFilters.length === 0){
-						searchGeneral.searchRecipes();
-					} else if (allIngredientsFilters.length > 0) {
-						let positionLiDeleleted = allIngredientsFilters.indexOf(el.textContent.toLowerCase())
-						allIngredientsFilters.splice(positionLiDeleleted,1 );
-						searchtest.searchTest(allIngredientsFilters);
-						sessionStorage.setItem('storageIngredientFilters', JSON.stringify(allIngredientsFilters));
-						el.remove();
-							if (allIngredientsFilters.length === 0){
-								searchGeneral.searchRecipes();
+					if (arrayFilter.length === 0){
+						searchGeneral.searchGeneral();
+					} else if (arrayFilter.length > 0) {
+						let positionLiDeleleted = arrayFilter.indexOf(elementLi.textContent.toLowerCase())
+						arrayFilter.splice(positionLiDeleleted,1 );
+						searchFilters.searchWithFilter(arrayFilter);
+						sessionStorage.setItem(placeStorage, JSON.stringify(arrayFilter));
+						elementLi.remove();
+							if (arrayFilter.length === 0){
+								searchGeneral.searchGeneral();
 								// showcards.showAllIngredients();
-							console.log(allIngredientsFilters)
-							el.remove();
+							console.log(arrayFilter)
+							elementLi.remove();
 							}
 					}
 				});

@@ -2,12 +2,10 @@ import * as app from './app.js';
 import * as comboBox from './combo-box.js';
 
 
-
 const results = document.getElementById('result-cards');
 const pannelIngredients = document.getElementById('ingredient');
 const pannelAppliances = document.getElementById('appareil');
 const pannelUstensils = document.getElementById('ustensile');
-
 export let totalofIngredients = [];
 export let totalofAppliances = [];
 export let totalofUstensils = [];
@@ -20,7 +18,6 @@ const showFilter = (array ,selectbox) => {
 			),
 	)
 }
-
 
 
 export const displayCards =  (arrayOfRecipe) => {
@@ -55,7 +52,7 @@ export const displayCards =  (arrayOfRecipe) => {
 			arrayOfIngredients.push(ingredient.ingredient);
 		}
 
-		//FETCH FATA FROM APPLIANCE
+		//FETCH DATA FROM APPLIANCE
 		arrayOfAppliances.push(objet.appliance)
 		// FETCH DATTA FROM USTENSILES
 		objet.ustensils.forEach((element) => arrayOfUstensils.push(element))

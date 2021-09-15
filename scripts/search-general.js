@@ -2,12 +2,14 @@ import * as app from './app.js';
 import * as showcards from './show-cards.js';
 
 
-let arrayDeleteElementDuplicate = []
-//SEARCH GENERAL
-export const searchRecipes = async () => {
+
+export const searchGeneral = async () => {
+
 	await app.fetchRecipes();
-	let element;
+
+	let arrayDeleteElementDuplicate = []
 	let data = [];
+	let element;
 
 
 	if (app.searchTerm.length === 0){
