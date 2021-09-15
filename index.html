@@ -4,7 +4,6 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 		<!-- CSS BOOTSTRAP  -->
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
@@ -16,16 +15,10 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
-
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
 			rel="stylesheet"
 		/>
-
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
 			rel="stylesheet"
@@ -38,7 +31,12 @@
 			crossorigin="anonymous"
 		/>
 		<!-- CUSTOM CSS -->
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="./styles/reset.css">
+		<link rel="stylesheet" href="./styles/style.css" />
+		<link rel="stylesheet" href="./styles/combo-box.css" />
+		<!-- JAVASCRIPT -->
+		<script defer type="module" src="./scripts/app.js"></script>
+
 		<title>les petits plats</title>
 	</head>
 
@@ -51,6 +49,7 @@
 			</div>
 			<div class="input-group mt-5 px-3 d-flex align-items-center" id="search">
 				<input
+					id="header__input"
 					class="form-control form-control-lg"
 					type="text"
 					placeholder="Rechercher un ingrédient,appareil, ustensiles ou une recette"
@@ -59,103 +58,104 @@
 			</div>
 		</header>
 
-		<div class="input-group">
-			<input
-				id="combo-ingredient"
-				type="text"
-				list="ingredients"
-				class="bg-primary"
-				placeholder="Ingredient"
-			/>
-		</div>
-		<label for="ingredients">
-			<datalist id="ingredients">
-				<select class="combobox" id="combo-ingredients-box">
-					<!-- <option value="JavaScript">JavaScript</option>
-			  <option value="Haskell">Haskell</option>
-			  <option value="Ruby">Ruby</option>
-			  <option value="Go">Go</option>
-			  <option value="Python">Python</option>
-			  <option value="etc">etc</option> -->
-				</select>
-			</datalist>
-		</label>
-
-		<script>
-			navigator.userAgent.toLowerCase().indexOf('safari');
-			var elements = document.body.getElementsByClassName('combobox');
-			console.log(elements);
-			elements[0].addEventListener('change', function () {
-				console.log('yeah');
-			});
-		</script>
-
 		<!---------- MAIN SECTION ---------->
 		<main class="mt-4 pt-4">
-			<!-- MAIN-HEADER -->
 			<div class="main-header mb-5 d-flex flex-wrap ps-2">
-				<div class="dropdown mx-1">
-					<button
-						class="btn btn-secondary dropdown-toggle bg-primary"
-						type="button"
-						id="dropdownMenuButton1"
-						data-bs-toggle="dropdown"
+
+				<div class="container-fluid-mt5">
+					<div
+						class="select"
+						role="combobox"
 						aria-expanded="false"
+						aria-has-popup="listbox"
 					>
-						<input
-							class="form-control form-control-lg bg-light ddsearch"
-							type="text"
-							placeholder="ingredient"
-						/>
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li><a class="dropdown-item m-1" href="#">Action</a></li>
-						<li><a class="dropdown-item m-1" href="#">Another action</a></li>
-						<li><a class="dropdown-item m-1" href="#">Something else here</a></li>
-					</ul>
+						<ul id="element-selected-ingredient"></ul>
+						<div class="main-header__box-filter">
+							<input
+								id="box_ingredients"
+								class="combo-box bg-primary lato-bold"
+								placeholder=" "
+								aria-autocomplete="list"
+								autocomplete="on"
+								type="text"
+								name="cc1"
+								list=""
+								style="border-radius: 5px 5px 0px 0px"
+								aria-activedescendant=""
+								tabindex="-1"
+							/>
+							<i id="arrow" class="fas fa-chevron-down text-white"></i>
+						</div>
+					</div>
+					<datalist multiple="" data-select="" id="ingredient" class="combobox_datalist bg-primary unshow">
+					</datalist>
 				</div>
 
-				<div class="dropdown mx-1">
-					<button
-						class="btn btn-secondary dropdown-toggle dropdown-toggle bg-success"
-						type="button"
-						id="dropdownMenuButton2"
-						data-bs-toggle="dropdown"
+				<div class="container-fluid-mt5">
+					<div
+						class="select"
+						role="combobox"
 						aria-expanded="false"
+						aria-has-popup="listbox"
 					>
-						Appareil
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
-					</ul>
+						<ul id="element-selected-appliance"></ul>
+						<div class="main-header__box-filter">
+							<input
+								id="box_appliance"
+								class="combo-box bg-success lato-bold"
+								placeholder="Appareil"
+								aria-autocomplete="list"
+								autocomplete="on"
+								type="text"
+								name="cc1"
+								list=""
+								style="border-radius: 5px 5px 0px 0px"
+								aria-activedescendant=""
+								tabindex="-1"
+							/>
+							<i id="arrow" class="fas fa-chevron-down text-white"></i>
+						</div>
+					</div>
+					<datalist multiple="" data-select="" id="appareil" class="combobox_datalist bg-success unshow">
+					</datalist>
 				</div>
-				<div class="dropdown mx-1">
-					<button
-						class="btn btn-secondary dropdown-toggle bg-danger"
-						type="button"
-						id="dropdownMenuButton3"
-						data-bs-toggle="dropdown"
+
+				<div class="container-fluid-mt5">
+					<div
+						class="select"
+						role="combobox"
 						aria-expanded="false"
+						aria-has-popup="listbox"
 					>
-						Ustensiles
-					</button>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
-					</ul>
+						<ul id="element-selected-ustensile"></ul>
+						<div class="main-header__box-filter">
+							<input
+								id="box_ustensiles"
+								class="combo-box bg-danger lato-bold"
+								placeholder="Ustensiles"
+								aria-autocomplete="list"
+								autocomplete="on"
+								type="text"
+								name="cc1"
+								list=""
+								style="border-radius: 5px 5px 0px 0px"
+								aria-activedescendant=""
+								tabindex="-1"
+
+							/>
+							<i id="arrow" class="fas fa-chevron-down text-white"></i>
+						</div>
+					</div>
+					<datalist multiple="" data-select="" id="ustensile" class="combobox_datalist bg-danger  unshow">
+					</datalist>
 				</div>
 			</div>
 
-			<!-- CARD-SECTION  -->
-			<div class="container-fluid">
-				<div
-					id="result-cards"
-					class="cards row d-flex justify-content-between flex-wrap"
-				></div>
-			</div>
+			<section
+				id="result-cards"
+				class="cards row d-flex justify-content-between flex-wrap"
+			>
+			</section>
 		</main>
 
 		<!-- JavaScript Bundle with Popper - Bootstrap -->
@@ -164,7 +164,5 @@
 			integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
 			crossorigin="anonymous"
 		></script>
-		<!-- My javascript -->
-		<script src="app.js"></script>
 	</body>
 </html>

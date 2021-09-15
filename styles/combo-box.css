@@ -1,0 +1,138 @@
+option {
+    color: #fff;
+    cursor: pointer;
+}
+
+a {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    display: block;
+    width: 117px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+    margin: 5px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    position: relative;
+
+}
+
+.fa-times-circle {
+    position: absolute;
+    top: 15px;
+    font-size: 20px;
+
+
+}
+
+input {
+    color: #fff;
+}
+
+input::placeholder {
+    color: #fff;
+    height: 22px;
+    width: 100%;
+    left: 15px;
+    top: 23px;
+    padding: 20px;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0em;
+    /* text-align: center; */
+}
+
+
+/* Combo-box General */
+.main-header__box-filter {
+    position: relative;
+    width: 170px;
+}
+
+
+.container-fluid-mt5 {
+    margin: 0 15px;
+}
+
+.combo-box {
+    height: 69px;
+    width: 100%;
+    left: 100px;
+    top: 298px;
+    border-radius: 5px;
+    border: none;
+    line-height: 21.6px;
+}
+
+.combo-box-open {
+    height: 397px;
+    width: 667px;
+    left: 98px;
+    top: 238px;
+
+}
+
+
+.fa-chevron-down {
+    position: absolute;
+    top: 26px;
+    right: 12px;
+    font-size: 21px;
+
+}
+
+.reverse-chevron {
+    transform: rotate(180deg);
+}
+
+
+
+
+.input-opacity {
+    color: grey !important;
+}
+
+.fa-times-circle {
+    color: white;
+    margin-left: 15px;
+}
+
+
+#ingredient {
+    overflow-y: hidden;
+    width: 1400px;
+    height: 400px;
+    height: 400px;
+    color: #fff;
+    column-count: 2;
+    column-width: 100px;
+
+}
+
+/* class added by javascript */
+
+.show {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.unshow {
+    display: none;
+}
+
+.opacituy {
+    color: rgba(220, 220, 220, 0.698)
+}
