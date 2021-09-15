@@ -30,6 +30,8 @@ export const displayCards =  (arrayOfRecipe) => {
 
 	results.innerHTML = '';
 	pannelIngredients.innerHTML = '';
+	pannelAppliances.innerHTML = '';
+	pannelUstensils.innerHTML = '';
 
 	for (let objet of arrayOfRecipe) {
 

@@ -110,7 +110,7 @@ inputUstensils.addEventListener('click', showPannel);
 
 
 //FILTER MANAGEMENT
-export const toSelectFilter = (filters, color, arrayFilter, placeStorage,placeForFilter) => {
+export const toSelectFilter = (filters, color, arrayFilter, placeStorage,placeForFilter, inputBox) => {
 
 
 	let allElementsLi = [];
@@ -132,11 +132,11 @@ export const toSelectFilter = (filters, color, arrayFilter, placeStorage,placeFo
 			if (arrayFilter == null || arrayFilter == undefined) {
 				filterSelectioned.push(option.text.toLowerCase());
 				sessionStorage.setItem(placeStorage, JSON.stringify(filterSelectioned));
-				searchFilters.searchWithFilter(filterSelectioned);
+				searchFilters.searchWithFilter(filterSelectioned, inputBox);
 				arrayFilter = JSON.parse(sessionStorage.getItem(placeStorage));
 			} else {
 				arrayFilter.push(option.text.toLowerCase());
-				searchFilters.searchWithFilter(arrayFilter);
+				searchFilters.searchWithFilter(arrayFilter, inputBox);
 				sessionStorage.setItem(placeStorage, JSON.stringify(arrayFilter));
 			}
 
@@ -149,7 +149,7 @@ export const toSelectFilter = (filters, color, arrayFilter, placeStorage,placeFo
 					} else if (arrayFilter.length > 0) {
 						let positionLiDeleleted = arrayFilter.indexOf(elementLi.textContent.toLowerCase())
 						arrayFilter.splice(positionLiDeleleted,1 );
-						searchFilters.searchWithFilter(arrayFilter);
+						searchFilters.searchWithFilter(arrayFilter, inputBox);
 						sessionStorage.setItem(placeStorage, JSON.stringify(arrayFilter));
 						elementLi.remove();
 							if (arrayFilter.length === 0){

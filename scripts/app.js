@@ -31,22 +31,25 @@ headerInput.addEventListener('input', (e) => {
 
 //SELECT BOX INGREDIENT
 comboBox.inputIngredient.onfocus = async () => {
-	let allIngredientsFilters;
-	console.log(allIngredientsFilters);
+
+	let storageIngredientFilters = JSON.parse(sessionStorage.getItem('stockIngredientFilters')); 
 	let ingredientToSelect =  document.querySelectorAll('.combobox-ingredient');
-	comboBox.toSelectFilter(ingredientToSelect, "bg-primary",allIngredientsFilters, 'storageIngredientFilters',"element-selected-ingredient");
+	comboBox.toSelectFilter(ingredientToSelect, "bg-primary",storageIngredientFilters, 'stockIngredientFilters',"element-selected-ingredient",comboBox.inputIngredient);
+	console.log(storageIngredientFilters)
 };
 
 comboBox.inputAppliance.onfocus = async () => {
-	let allApplianceFilters;
+	
+	let storageApplianceFilters = JSON.parse(sessionStorage.getItem('stockApplianceFilters'));
 	let applianceToSelect = document.querySelectorAll('.combobox-appareil');
-	comboBox.toSelectFilter(applianceToSelect, "bg-success",allApplianceFilters, 'storageApplianceFilters',"element-selected-appliance");
+	comboBox.toSelectFilter(applianceToSelect, "bg-success",storageApplianceFilters, 'stockApplianceFilters',"element-selected-appliance", comboBox.inputAppliance);
 }
 
 comboBox.inputUstensils.onfocus = async () => {
-	let allUstensilsFilters;
+	
+	let storageUstensilsFilters = JSON.parse(sessionStorage.getItem('stockUstensilFilters'));
 	let ustensilToSelect =  document.querySelectorAll('.combobox-ustensile');
-		comboBox.toSelectFilter(ustensilToSelect, "bg-danger",allUstensilsFilters, 'storageUstensilsFilters',"element-selected-ustensile");
+		comboBox.toSelectFilter(ustensilToSelect, "bg-danger",storageUstensilsFilters, 'stockUstensilFilters',"element-selected-ustensile",comboBox.inputUstensils);
 	}
 
 
