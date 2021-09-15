@@ -110,13 +110,14 @@ inputUstensils.addEventListener('click', showPannel);
 
 
 //FILTER MANAGEMENT
-export const toSelectFilter = (filters, color, arrayFilter, placeStorage,placeForFilter, inputBox) => {
+export const toSelectFilter =  (filters, color, arrayFilter, placeStorage,placeForFilter, inputBox) => {
 
 
 	let allElementsLi = [];
 	let filterSelectioned = [];
 
-	for (let option of filters) {
+	for  (let option of filters) {
+		
 		option.onclick = function () {
 			//Creation element Li
 			let newLi = document.createElement('li');
@@ -124,6 +125,7 @@ export const toSelectFilter = (filters, color, arrayFilter, placeStorage,placeFo
 			newLi.appendChild(newContentForLi);
 			newLi.insertAdjacentHTML('beforeend', '<i class="far fa-times-circle"></i>');
 			newLi.classList.add(color);
+			newLi.classList.add("filter");
 			let currentLi = document.getElementById(placeForFilter);
 			currentLi.insertAdjacentElement('beforeend', newLi);
 			allElementsLi = document.querySelectorAll('li');
@@ -161,6 +163,8 @@ export const toSelectFilter = (filters, color, arrayFilter, placeStorage,placeFo
 					}
 				});
 			});
+		
+
 		};
 	}
 };

@@ -13,6 +13,8 @@ export let searchTerm = '';
 export let arrayForIngredients = [];
 export let arrayDeleteElementDuplicate = [];
 
+
+let ingredientToSelect;
 //JSON REQUEST
 export const fetchRecipes = async () => {
 	return (bookOfRecipes = await fetch('./recipes.json').then((res) => res.json()));
@@ -30,13 +32,14 @@ headerInput.addEventListener('input', (e) => {
 //showcards.showAllIngredients();
 
 //SELECT BOX INGREDIENT
-comboBox.inputIngredient.onfocus = async () => {
+
+
+comboBox.inputIngredient.onclick =  () => {
 
 	let storageIngredientFilters = JSON.parse(sessionStorage.getItem('stockIngredientFilters')); 
 	let ingredientToSelect =  document.querySelectorAll('.combobox-ingredient');
 	comboBox.toSelectFilter(ingredientToSelect, "bg-primary",storageIngredientFilters, 'stockIngredientFilters',"element-selected-ingredient",comboBox.inputIngredient);
-	console.log(storageIngredientFilters)
-};
+}
 
 comboBox.inputAppliance.onfocus = async () => {
 	
@@ -53,8 +56,14 @@ comboBox.inputUstensils.onfocus = async () => {
 	}
 
 
+
+
+
+
 window.onload = () =>{
 	sessionStorage.clear();
+
+
 
 }
 
