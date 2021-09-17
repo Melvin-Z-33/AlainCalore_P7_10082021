@@ -2,6 +2,33 @@ import * as app from './app.js';
 import * as showcard from './show-cards.js';
 import * as comboBox from './combo-box.js';
 
+export let allOptions = [];
+
+
+	//!Test
+		
+	
+	
+	
+	const deleteElementInPanel = (comboBoxOptions) => {
+				let allFilters = document.querySelectorAll(".filter")
+				let elementSelectioned;
+				allFilters.forEach(((element) => {
+					 allOptions =  document.querySelectorAll(comboBoxOptions);
+
+					for (elementSelectioned of allOptions) {
+						if (element.textContent.toLowerCase() === elementSelectioned.textContent.toLowerCase()) {
+							elementSelectioned.classList.add('unshow');
+						}
+					} 
+				})) 
+			}
+
+			//! **** fin
+
+
+
+
 
 
 //* RECHERCHE  AVEC LES FILTRES
@@ -20,12 +47,12 @@ export const searchWithFilter = async (array, inputBox) => {
 			for (let objet of app.bookOfRecipes.recipes) {
 				for (let ingredient of objet.ingredients) {
 					if (ingredient.ingredient.toLowerCase() === array[0].toLowerCase()) {
-						console.log('ok');
 						displayArrayfromIngredients.push(objet);
 					}
 				}
 			}
 			showcard.displayCards(displayArrayfromIngredients);
+			deleteElementInPanel('.combobox-ingredient');
 			break;
 		case 2:
 			for (let objet of app.bookOfRecipes.recipes) {
@@ -49,12 +76,13 @@ export const searchWithFilter = async (array, inputBox) => {
 				}
 			}
 			showcard.displayCards(displayArrayfromIngredients);
+			deleteElementInPanel('.combobox-ingredient');
 			break;
 		case 3:
 			alert("Vous ne pouvez selectionner que 2 ingrédients)")
 			break;
 		default:
-			console.log(`Sorry, we are out of ${array.length}.`);
+			console.log(`veuillez sélectionner des filtres`);
 		}
 
 	} else if ( inputBox == comboBox.inputAppliance){
@@ -68,6 +96,7 @@ export const searchWithFilter = async (array, inputBox) => {
 					}
 				}
 				showcard.displayCards(displayArrayfromIngredients);
+				deleteElementInPanel('.combobox-appareil');
 				break;
 			case 2:
 				for (let objet of app.bookOfRecipes.recipes) {
@@ -82,12 +111,13 @@ export const searchWithFilter = async (array, inputBox) => {
 					}
 				}
 				showcard.displayCards(displayArrayfromIngredients);
+				deleteElementInPanel('.combobox-appareil');
 				break;
 			case 3:
-				alert("Vous ne pouvez selectionner que 2 appareil)")
+				alert("Vous ne pouvez selectionner que 2 appareils)")
 				break;
 			default:
-				console.log(`le tableau n'est pas correct.`);
+				console.log(`veuillez sélectionner des filtres`);
 			}
 	} else if ( inputBox == comboBox.inputUstensils){
 		//FILTER FOR USTENSILS
@@ -102,6 +132,7 @@ export const searchWithFilter = async (array, inputBox) => {
 					}
 				}
 				showcard.displayCards(displayArrayfromIngredients);
+				deleteElementInPanel('.combobox-ustensile');
 				break;
 			case 2:
 				for (let objet of app.bookOfRecipes.recipes) {
@@ -119,14 +150,16 @@ export const searchWithFilter = async (array, inputBox) => {
 					}
 				}
 				showcard.displayCards(displayArrayfromIngredients);
+				deleteElementInPanel('.combobox-ustensile');
 				break;
 			case 3:
 				alert("Vous ne pouvez selectionner que 2 ustensiles)")
 				break;
 			default:
-				console.log(`désolé, veuillez reccomencez`);
+				console.log(`veuillez sélectionner des filtres`);
 		}
 
 	}
 };
+
 

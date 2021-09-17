@@ -9,17 +9,67 @@ const pannelUstensils = document.getElementById('ustensile');
 export let totalofIngredients = [];
 export let totalofAppliances = [];
 export let totalofUstensils = [];
+let ingredientToSelect
+
+
+
+//* ---------- FILTER MANANGEMENT  ----------*
+const makeElementsLiClickable = (selectbox) => {
+
+
+	switch (selectbox.id) {
+		case 'ingredient':
+			let storageIngredientFilters = JSON.parse(sessionStorage.getItem('stockIngredientFilters')); 
+			ingredientToSelect =  document.querySelectorAll('.combobox-ingredient');
+			comboBox.toSelectFilter(ingredientToSelect, "bg-primary",storageIngredientFilters, 'stockIngredientFilters',"element-selected-ingredient",comboBox.inputIngredient);
+			break;
+		case 'appareil':
+			let storageApplianceFilters = JSON.parse(sessionStorage.getItem('stockApplianceFilters'));
+			let applianceToSelect = document.querySelectorAll('.combobox-appareil');
+			comboBox.toSelectFilter(applianceToSelect, "bg-success",storageApplianceFilters, 'stockApplianceFilters',"element-selected-appliance", comboBox.inputAppliance);
+			break;
+		case 'ustensile':
+			let storageUstensilsFilters = JSON.parse(sessionStorage.getItem('stockUstensilFilters'));
+			let ustensilToSelect =  document.querySelectorAll('.combobox-ustensile');
+			comboBox.toSelectFilter(ustensilToSelect, "bg-danger",storageUstensilsFilters, 'stockUstensilFilters',"element-selected-ustensile",comboBox.inputUstensils);
+		default:
+			console.log("Veuillez sélectionner un filtre");
+	}
+}
+
 
 const showFilter = (array ,selectbox) => {
+
+
 	array.map(
 		(recipe) => selectbox
 			.insertAdjacentHTML(
 				'beforeend',`<option class="col-4 combobox-${selectbox.id}" value="${recipe}" >${recipe}</option>`,
 			),
 	)
+
+	switch (selectbox.id) {
+		case 'ingredient':
+			let ingredientsToSelect =  document.querySelectorAll('.combobox-ingredient');
+			ingredientsToSelect.forEach(element => element.addEventListener("click", makeElementsLiClickable(selectbox) ))
+			break;
+		case 'appareil':
+			let appliancesToSelect =  document.querySelectorAll('.combobox-appareil');
+			appliancesToSelect.forEach(element => element.addEventListener("click", makeElementsLiClickable(selectbox) ))
+			break;
+		case 'ustensile':
+			let ustensilsToSelect =  document.querySelectorAll('.combobox-ustensile');
+			ustensilsToSelect.forEach(element => element.addEventListener("click", makeElementsLiClickable(selectbox) ))
+			break;
+		default:
+			console.log("Veuillez sélectionner un filtre");
+	}
 }
 
 
+
+
+//* ---------- CARDS MANANGEMENT ----------*
 export const displayCards =  (arrayOfRecipe) => {
 
 	let ingredientsForCard =''

@@ -18,6 +18,7 @@ export let allElementsLi;
 
 
 
+
 const filterArray = (Arr, Input) => {
 	return Arr.filter(e => e.toLowerCase().includes(Input.toLowerCase()))
 }
@@ -35,23 +36,37 @@ const showAutocompletion = (array, pannel) => {
 
 
 export const showPannel = (e) => {
-	let myDatalist= e.target.parentNode.parentNode.nextElementSibling;
-
+	const myDatalist= e.target.parentNode.parentNode.nextElementSibling;
+	const myDatalistName = myDatalist.getAttribute('data-selectbox');
 	//Display Pannel
 	myDatalist.classList.toggle('show');
 	myDatalist.classList.toggle('unshow');
 
+
+
+
+
+
 	if (myDatalist.classList.contains('show')){
-		e.target.placeholder = `'Recherche un ${myDatalist.id}'`;
+		e.target.placeholder = `Recherche un ${myDatalist.id}`;
 		e.target.nextElementSibling.classList.toggle('reverse-chevron');
-		e.path[1].style.width = "370px";
-		e.target.classList.add("opacity")
+		//e.path[1].style.width = "370px";
+		e.target.classList.remove("color1")
+		e.target.classList.add("color2")
 
 
-	//Autocompletion
+		if (e.path){
+			e.path[1].style.width = "300px";
+		}else if (e.composedPath()){
+			e.composedPath()[1].style.width = "300px";
+		}
+
+
+	// Autocompletion
 	e.target.addEventListener('input', (e) => {
+
 		let table=" ";
-		let term = e.target.value;
+		const term = e.target.value;
 
 		switch (myDatalist.id) {
 			case "ingredient":
@@ -67,56 +82,49 @@ export const showPannel = (e) => {
 				showAutocompletion(table,myDatalist);
 			break;
 			default:
-			console.log("renard");
+			console.log("autocomplétion");
 			break;
 		}
-
 	});
 
+
+
 	}else if (!e.target.classList.contains('show')) {
-		e.target.placeholder = `${myDatalist.id}`;
+		e.target.placeholder = `${myDatalistName}`;
 		e.target.nextElementSibling.classList.toggle('reverse-chevron')
-		e.path[1].style.width = "170px";
-		e.target.classList.remove("opacity");
+		e.target.classList.remove("color2");
+		e.target.classList.add("color1")
+
+		if (e.path){
+			e.path[1].style.width = "170px";
+		}else if (e.composedPath()){
+			e.composedPath()[1].style.width = "170px";
+		}
 	}
 
 };
 inputIngredient.addEventListener('click', showPannel);
+inputIngredient.addEventListener('input', showPannel);
 inputAppliance.addEventListener('click', showPannel);
+inputAppliance.addEventListener('input', showPannel);
 inputUstensils.addEventListener('click', showPannel);
+inputUstensils.addEventListener('input', showPannel);
 
 
 
 
-
-
-
-
-// export const searchIngredients = async (li) => {
-
-// 	await app.fetchRecipes();
-// 	let displayArrayfromIngredients = [];
-
-// 	for (let objet of app.bookOfRecipes.recipes) {
-// 		for (let ingredient of objet.ingredients) {
-// 			if (ingredient.ingredient === li) {
-// 				displayArrayfromIngredients.push(objet);
-// 			}
-// 		}
-// 	}
-// 	showcard.displayCards(displayArrayfromIngredients);
-// };
 
 
 
 //FILTER MANAGEMENT
-export const toSelectFilter = (filters, color, arrayFilter, placeStorage,placeForFilter, inputBox) => {
+export const toSelectFilter =  (filters, color, arrayFilter, placeStorage,placeForFilter, inputBox) => {
 
 
 	let allElementsLi = [];
 	let filterSelectioned = [];
 
-	for (let option of filters) {
+	for  (let option of filters) {
+
 		option.onclick = function () {
 			//Creation element Li
 			let newLi = document.createElement('li');
@@ -124,6 +132,7 @@ export const toSelectFilter = (filters, color, arrayFilter, placeStorage,placeFo
 			newLi.appendChild(newContentForLi);
 			newLi.insertAdjacentHTML('beforeend', '<i class="far fa-times-circle"></i>');
 			newLi.classList.add(color);
+			newLi.classList.add("filter");
 			let currentLi = document.getElementById(placeForFilter);
 			currentLi.insertAdjacentElement('beforeend', newLi);
 			allElementsLi = document.querySelectorAll('li');
@@ -159,10 +168,18 @@ export const toSelectFilter = (filters, color, arrayFilter, placeStorage,placeFo
 							elementLi.remove();
 							}
 					}
+
+
+
+
+
 				});
+				
 			});
+
 		};
 	}
+
 };
 
 

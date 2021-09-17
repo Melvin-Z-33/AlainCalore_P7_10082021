@@ -69,12 +69,12 @@
 						aria-expanded="false"
 						aria-has-popup="listbox"
 					>
-						<ul id="element-selected-ingredient"></ul>
+						<ul id="element-selected-ingredient" class="d-flex justify-content-start element-selected"></ul>
 						<div class="main-header__box-filter">
 							<input
 								id="box_ingredients"
-								class="combo-box bg-primary lato-bold"
-								placeholder=" "
+								class="combo-box bg-primary lato-bold color1"
+								placeholder="Ingredients"
 								aria-autocomplete="list"
 								autocomplete="on"
 								type="text"
@@ -87,7 +87,7 @@
 							<i id="arrow" class="fas fa-chevron-down text-white"></i>
 						</div>
 					</div>
-					<datalist multiple="" data-select="" id="ingredient" class="combobox_datalist bg-primary unshow">
+					<datalist multiple="" data-selectbox="Ingredients" id="ingredient" class="combobox_datalist bg-primary unshow">
 					</datalist>
 				</div>
 
@@ -98,11 +98,11 @@
 						aria-expanded="false"
 						aria-has-popup="listbox"
 					>
-						<ul id="element-selected-appliance"></ul>
+						<ul id="element-selected-appliance" class="d-flex justify-content-start element-selected"></ul>
 						<div class="main-header__box-filter">
 							<input
 								id="box_appliance"
-								class="combo-box bg-success lato-bold"
+								class="combo-box bg-success lato-bold color1"
 								placeholder="Appareil"
 								aria-autocomplete="list"
 								autocomplete="on"
@@ -116,7 +116,7 @@
 							<i id="arrow" class="fas fa-chevron-down text-white"></i>
 						</div>
 					</div>
-					<datalist multiple="" data-select="" id="appareil" class="combobox_datalist bg-success unshow">
+					<datalist multiple="" data-selectbox="Appareil" id="appareil" class="combobox_datalist bg-success  unshow">
 					</datalist>
 				</div>
 
@@ -127,11 +127,11 @@
 						aria-expanded="false"
 						aria-has-popup="listbox"
 					>
-						<ul id="element-selected-ustensile"></ul>
+						<ul id="element-selected-ustensile" class="d-flex justify-content-start element-selected"></ul>
 						<div class="main-header__box-filter">
 							<input
 								id="box_ustensiles"
-								class="combo-box bg-danger lato-bold"
+								class="combo-box bg-danger lato-bold color1"
 								placeholder="Ustensiles"
 								aria-autocomplete="list"
 								autocomplete="on"
@@ -146,14 +146,14 @@
 							<i id="arrow" class="fas fa-chevron-down text-white"></i>
 						</div>
 					</div>
-					<datalist multiple="" data-select="" id="ustensile" class="combobox_datalist bg-danger  unshow">
+					<datalist multiple="" data-selectbox="Ustensiles" id="ustensile" class="combobox_datalist bg-danger  unshow">
 					</datalist>
 				</div>
 			</div>
 
 			<section
 				id="result-cards"
-				class="cards row d-flex justify-content-between flex-wrap"
+				class="cards row d-flex  flex-wrap"
 			>
 			</section>
 		</main>
