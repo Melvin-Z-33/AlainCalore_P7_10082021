@@ -2,22 +2,28 @@ import * as app from './app.js';
 import * as showcard from './show-cards.js';
 import * as comboBox from './combo-box.js';
 
+export let allOptions = [];
 
 
 	//!Test
-		const deleteElementInPanel = (comboBoxOptions) => {
+		
+	
+	
+	
+	const deleteElementInPanel = (comboBoxOptions) => {
 				let allFilters = document.querySelectorAll(".filter")
 				let elementSelectioned;
 				allFilters.forEach(((element) => {
-					let allOptions =  document.querySelectorAll(comboBoxOptions);
+					 allOptions =  document.querySelectorAll(comboBoxOptions);
 
 					for (elementSelectioned of allOptions) {
 						if (element.textContent.toLowerCase() === elementSelectioned.textContent.toLowerCase()) {
 							elementSelectioned.classList.add('unshow');
 						}
-					}
-				}))
+					} 
+				})) 
 			}
+
 			//! **** fin
 
 

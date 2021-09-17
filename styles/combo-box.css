@@ -19,28 +19,16 @@ li {
     height: 50px;
     line-height: 50px;
     border-radius: 5px;
-    margin: 5px;
-    text-align: center;
     color: white;
     cursor: pointer;
     position: relative;
-
+    margin-right: 20px;
+    padding-left: 4px;
+    margin-top: 7px;
 }
 
-.fa-times-circle {
-    position: absolute;
-    top: 15px;
-    font-size: 20px;
-
-
-}
-
-input {
-    color: #fff;
-}
 
 input::placeholder {
-    color: #fff;
     height: 22px;
     width: 100%;
     left: 15px;
@@ -56,15 +44,27 @@ input::placeholder {
 }
 
 
+.opacituy {
+    color: rgba(220, 220, 220, 0.698)
+}
+
+.input-opacity {
+    color: grey !important;
+}
+
+.color1::placeholder {
+    color: white;
+}
+
+.color2::placeholder {
+    color: rgba(220, 220, 220, 0.698)
+}
+
+
 /* Combo-box General */
 .main-header__box-filter {
     position: relative;
     width: 170px;
-}
-
-
-.container-fluid-mt5 {
-    margin: 0 15px;
 }
 
 .combo-box {
@@ -75,6 +75,13 @@ input::placeholder {
     border-radius: 5px;
     border: none;
     line-height: 21.6px;
+    color: #fff;
+    padding-left: 13px;
+}
+
+.combobox_datalist {
+    z-index: 1000;
+    position: absolute;
 }
 
 .combo-box-open {
@@ -100,14 +107,28 @@ input::placeholder {
 
 
 
+/* FILTRE */
+.container-fluid-mt5 {
+    margin: 15px;
+}
 
-.input-opacity {
-    color: grey !important;
+.select {
+    position: relative;
+}
+
+.element-selected {
+    position: absolute;
+    top: -61px;
+    min-width: 170px;
+    max-width: 240px;
 }
 
 .fa-times-circle {
+    position: absolute;
+    top: 15px;
+    font-size: 20px;
+    right: 3px;
     color: white;
-    margin-left: 15px;
 }
 
 
@@ -119,10 +140,10 @@ input::placeholder {
     color: #fff;
     column-count: 2;
     column-width: 100px;
-
 }
 
-/* class added by javascript */
+
+/* class custom  added by javascript */
 
 .show {
     display: flex;
@@ -131,8 +152,4 @@ input::placeholder {
 
 .unshow {
     display: none;
-}
-
-.opacituy {
-    color: rgba(220, 220, 220, 0.698)
 }

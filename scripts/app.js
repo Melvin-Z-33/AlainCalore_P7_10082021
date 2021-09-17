@@ -14,7 +14,7 @@ export let arrayForIngredients = [];
 export let arrayDeleteElementDuplicate = [];
 
 
-let ingredientToSelect;
+//let ingredientToSelect;
 //JSON REQUEST
 export const fetchRecipes = async () => {
 	return (bookOfRecipes = await fetch('./recipes.json').then((res) => res.json()));
@@ -28,43 +28,10 @@ headerInput.addEventListener('input', (e) => {
 	searchGeneral.searchGeneral();
 });
 
-//comboBox.inputIngredient.placeholder = 'Ingrédients';
-//showcards.showAllIngredients();
-
-//SELECT BOX INGREDIENT
-
-
-comboBox.inputIngredient.onclick =  () => {
-
-	let storageIngredientFilters = JSON.parse(sessionStorage.getItem('stockIngredientFilters')); 
-	let ingredientToSelect =  document.querySelectorAll('.combobox-ingredient');
-	comboBox.toSelectFilter(ingredientToSelect, "bg-primary",storageIngredientFilters, 'stockIngredientFilters',"element-selected-ingredient",comboBox.inputIngredient);
-}
-
-comboBox.inputAppliance.onfocus = async () => {
-	
-	let storageApplianceFilters = JSON.parse(sessionStorage.getItem('stockApplianceFilters'));
-	let applianceToSelect = document.querySelectorAll('.combobox-appareil');
-	comboBox.toSelectFilter(applianceToSelect, "bg-success",storageApplianceFilters, 'stockApplianceFilters',"element-selected-appliance", comboBox.inputAppliance);
-}
-
-comboBox.inputUstensils.onfocus = async () => {
-	
-	let storageUstensilsFilters = JSON.parse(sessionStorage.getItem('stockUstensilFilters'));
-	let ustensilToSelect =  document.querySelectorAll('.combobox-ustensile');
-		comboBox.toSelectFilter(ustensilToSelect, "bg-danger",storageUstensilsFilters, 'stockUstensilFilters',"element-selected-ustensile",comboBox.inputUstensils);
-	}
-
-
-
-
 
 
 window.onload = () =>{
 	sessionStorage.clear();
-
-
-
 }
 
 
