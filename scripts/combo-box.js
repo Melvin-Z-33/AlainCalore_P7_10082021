@@ -136,7 +136,8 @@ export const toSelectFilter =  (filters, color, arrayFilter, placeStorage,placeF
 			let currentLi = document.getElementById(placeForFilter);
 			currentLi.insertAdjacentElement('beforeend', newLi);
 			allElementsLi = document.querySelectorAll('li');
-
+			document.querySelector('main').classList.remove('margin-comboBox-normal');
+			document.querySelector('main').classList.add('margin-comboBox-top');
 			//Sort with Li created
 			if (arrayFilter == null || arrayFilter == undefined) {
 				filterSelectioned.push(option.text.toLowerCase());
@@ -155,6 +156,8 @@ export const toSelectFilter =  (filters, color, arrayFilter, placeStorage,placeF
 
 					if (arrayFilter.length === 0){
 						searchGeneral.searchGeneral();
+						document.querySelector('main').classList.remove('margin-comboBox-top');
+						document.querySelector('main').classList.add('margin-comboBox-normal');
 					} else if (arrayFilter.length > 0) {
 						let positionLiDeleleted = arrayFilter.indexOf(elementLi.textContent.toLowerCase())
 						arrayFilter.splice(positionLiDeleleted,1 );
@@ -166,6 +169,8 @@ export const toSelectFilter =  (filters, color, arrayFilter, placeStorage,placeF
 								// showcards.showAllIngredients();
 							console.log(arrayFilter)
 							elementLi.remove();
+							document.querySelector('main').classList.remove('margin-comboBox-top');
+							document.querySelector('main').classList.add('margin-comboBox-normal');
 							}
 					}
 

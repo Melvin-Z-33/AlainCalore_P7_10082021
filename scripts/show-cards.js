@@ -13,7 +13,7 @@ let ingredientToSelect
 
 
 
-//* ---------- FILTER MANANGEMENT  ----------*
+//* ---------- FILTER MANAGEMENT  ----------*
 const makeElementsLiClickable = (selectbox) => {
 
 
@@ -44,7 +44,7 @@ const showFilter = (array ,selectbox) => {
 	array.map(
 		(recipe) => selectbox
 			.insertAdjacentHTML(
-				'beforeend',`<option class="col-4 combobox-${selectbox.id}" value="${recipe}" >${recipe}</option>`,
+				'beforeend',`<option class="col combobox-${selectbox.id}" value="${recipe}" >${recipe}</option>`,
 			),
 	)
 
@@ -69,7 +69,7 @@ const showFilter = (array ,selectbox) => {
 
 
 
-//* ---------- CARDS MANANGEMENT ----------*
+//* ---------- CARDS MANAGEMENT ----------*
 export const displayCards =  (arrayOfRecipe) => {
 
 	let ingredientsForCard =''
@@ -110,8 +110,8 @@ export const displayCards =  (arrayOfRecipe) => {
 		objet.ustensils.forEach((element) => arrayOfUstensils.push(element))
 
 		let htmlforCards = `
-			<div class="card  col-sm-12 col-md-3 mx-4 ">
-			<img class="" alt="" src="http://via.placeholder.com/10">
+			<div class="card  mr-auto col-sm-12 col-md-4   ">
+			<div class="image"> </div>
 			<div class="card-body container">
 				<div class="row justify-content-between">
 					<h2  class="card-title lato-bold text-hidden col-8">${objet.name}</h2>

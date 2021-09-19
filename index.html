@@ -42,15 +42,15 @@
 
 	<body class="mx-auto">
 		<!---------- HEADER SECTION ---------->
-		<header class="mt-2">
+		<header class="mt-2 d-flex flex-column align-item-center">
 			<div class="logo d-flex flex-column align-items-center mx-auto w-50">
 				<i class="fas fa-chess-rook fa-4x text-danger" aria-hidden="true"></i>
 				<h1 class="display-1 text-danger">Les petits plats</h1>
 			</div>
-			<div class="input-group mt-5 px-3 d-flex align-items-center" id="search">
+			<div class="input-group mt-5 mx-auto d-flex align-items-center" id="search">
 				<input
 					id="header__input"
-					class="form-control form-control-lg"
+					class="form-control "
 					type="text"
 					placeholder="Rechercher un ingrédient,appareil, ustensiles ou une recette"
 				/>
@@ -59,15 +59,14 @@
 		</header>
 
 		<!---------- MAIN SECTION ---------->
-		<main class="mt-4 pt-4">
-			<div class="main-header mb-5 d-flex flex-wrap ps-2">
+		<main>
+			<div class="main-header mb-5 d-flex  flex-wrap ">
 
 				<div class="container-fluid-mt5">
 					<div
 						class="select"
 						role="combobox"
 						aria-expanded="false"
-						aria-has-popup="listbox"
 					>
 						<ul id="element-selected-ingredient" class="d-flex justify-content-start element-selected"></ul>
 						<div class="main-header__box-filter">
@@ -79,15 +78,13 @@
 								autocomplete="on"
 								type="text"
 								name="cc1"
-								list=""
 								style="border-radius: 5px 5px 0px 0px"
-								aria-activedescendant=""
 								tabindex="-1"
 							/>
-							<i id="arrow" class="fas fa-chevron-down text-white"></i>
+							<i  class="arrow fas fa-chevron-down text-white"></i>
 						</div>
 					</div>
-					<datalist multiple="" data-selectbox="Ingredients" id="ingredient" class="combobox_datalist bg-primary unshow">
+					<datalist data-selectbox="Ingredients" id="ingredient" class="combobox_datalist bg-primary unshow">
 					</datalist>
 				</div>
 
@@ -96,7 +93,6 @@
 						class="select"
 						role="combobox"
 						aria-expanded="false"
-						aria-has-popup="listbox"
 					>
 						<ul id="element-selected-appliance" class="d-flex justify-content-start element-selected"></ul>
 						<div class="main-header__box-filter">
@@ -108,15 +104,13 @@
 								autocomplete="on"
 								type="text"
 								name="cc1"
-								list=""
 								style="border-radius: 5px 5px 0px 0px"
-								aria-activedescendant=""
 								tabindex="-1"
 							/>
-							<i id="arrow" class="fas fa-chevron-down text-white"></i>
+							<i  class=" arrow fas fa-chevron-down text-white"></i>
 						</div>
 					</div>
-					<datalist multiple="" data-selectbox="Appareil" id="appareil" class="combobox_datalist bg-success  unshow">
+					<datalist  data-selectbox="Appareil" id="appareil" class="combobox_datalist bg-success  unshow">
 					</datalist>
 				</div>
 
@@ -125,7 +119,6 @@
 						class="select"
 						role="combobox"
 						aria-expanded="false"
-						aria-has-popup="listbox"
 					>
 						<ul id="element-selected-ustensile" class="d-flex justify-content-start element-selected"></ul>
 						<div class="main-header__box-filter">
@@ -137,25 +130,25 @@
 								autocomplete="on"
 								type="text"
 								name="cc1"
-								list=""
 								style="border-radius: 5px 5px 0px 0px"
-								aria-activedescendant=""
 								tabindex="-1"
 
 							/>
-							<i id="arrow" class="fas fa-chevron-down text-white"></i>
+							<i  class=" arrow fas fa-chevron-down text-white"></i>
 						</div>
 					</div>
-					<datalist multiple="" data-selectbox="Ustensiles" id="ustensile" class="combobox_datalist bg-danger  unshow">
+					<datalist data-selectbox="Ustensiles" id="ustensile" class="combobox_datalist bg-danger  unshow">
 					</datalist>
 				</div>
 			</div>
 
+			
 			<section
 				id="result-cards"
-				class="cards row d-flex  flex-wrap"
+				class="row d-flex   "
 			>
 			</section>
+	
 		</main>
 
 		<!-- JavaScript Bundle with Popper - Bootstrap -->
@@ -166,3 +159,9 @@
 		></script>
 	</body>
 </html>
+
+
+
+
+
+

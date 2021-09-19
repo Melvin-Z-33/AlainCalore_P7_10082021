@@ -23,8 +23,13 @@ li {
     cursor: pointer;
     position: relative;
     margin-right: 20px;
-    padding-left: 4px;
+    padding-left: 11px;
+    padding-right: 27px;
     margin-top: 7px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
 }
 
 
@@ -42,6 +47,8 @@ input::placeholder {
     letter-spacing: 0em;
     /* text-align: center; */
 }
+
+
 
 
 .opacituy {
@@ -62,9 +69,18 @@ input::placeholder {
 
 
 /* Combo-box General */
+
+.main-header {
+    gap: 30px
+}
+
 .main-header__box-filter {
     position: relative;
     width: 170px;
+}
+
+.container-fluid-mt5 {
+    margin-top: 15px;
 }
 
 .combo-box {
@@ -82,6 +98,11 @@ input::placeholder {
 .combobox_datalist {
     z-index: 1000;
     position: absolute;
+    height: 397px;
+    width: 667px;
+
+    border-radius: 5px;
+
 }
 
 .combo-box-open {
@@ -108,9 +129,7 @@ input::placeholder {
 
 
 /* FILTRE */
-.container-fluid-mt5 {
-    margin: 15px;
-}
+
 
 .select {
     position: relative;
@@ -127,7 +146,7 @@ input::placeholder {
     position: absolute;
     top: 15px;
     font-size: 20px;
-    right: 3px;
+    right: 9px;
     color: white;
 }
 
@@ -152,4 +171,12 @@ input::placeholder {
 
 .unshow {
     display: none;
+}
+
+.margin-comboBox-top {
+    margin-top: 50px;
+}
+
+.margin-comboBox-normal {
+    margin-top: 0px;
 }

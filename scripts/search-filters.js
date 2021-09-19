@@ -5,33 +5,27 @@ import * as comboBox from './combo-box.js';
 export let allOptions = [];
 
 
-	//!Test
-		
-	
-	
-	
 	const deleteElementInPanel = (comboBoxOptions) => {
 				let allFilters = document.querySelectorAll(".filter")
 				let elementSelectioned;
 				allFilters.forEach(((element) => {
-					 allOptions =  document.querySelectorAll(comboBoxOptions);
+					allOptions =  document.querySelectorAll(comboBoxOptions);
 
 					for (elementSelectioned of allOptions) {
 						if (element.textContent.toLowerCase() === elementSelectioned.textContent.toLowerCase()) {
 							elementSelectioned.classList.add('unshow');
 						}
-					} 
-				})) 
+					}
+				}))
 			}
 
-			//! **** fin
 
 
 
 
 
 
-//* RECHERCHE  AVEC LES FILTRES
+
 
 export const searchWithFilter = async (array, inputBox) => {
 	await app.fetchRecipes();
