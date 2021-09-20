@@ -97,20 +97,33 @@ input::placeholder {
 
 
 
-#ingredient {
+/* #ingredient {
     overflow-y: hidden;
     color: #fff;
     column-count: 2;
     column-width: 100px;
-}
+} */
 
 .combobox_datalist {
     z-index: 1000;
     position: absolute;
-    height: 397px;
+    max-height: 397px;
+    height: auto;
     width: 667px;
+    /* flex-direction: column; */
+    padding: 0 17px;
+    overflow: hidden;
 
-    border-radius: 5px;
+
+}
+
+option {
+    width: 112px;
+    margin-right: 59px;
+    margin-bottom: 15px;
+    text-align: left;
+    flex-grow: 1;
+    font-size: 18px;
 
 }
 
@@ -180,4 +193,45 @@ input::placeholder {
 
 .margin-comboBox-normal {
     margin-top: 0px;
+}
+
+
+
+/*************** MEDIA QUERIES COMBO-BOX  ***************/
+
+@media screen and (max-width: 1400px) {
+
+    #search {
+        width: 96%;
+    }
+
+    .main-header {
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .main-header {
+        align-content: center;
+        flex-direction: column;
+
+    }
+
+    .color2 {
+        width: 466px;
+        ;
+        margin-left: 15%;
+    }
+
+    .combobox_datalist {
+        width: 466px;
+        margin-left: 14.5%;
+    }
+
+
+
+
+
 }

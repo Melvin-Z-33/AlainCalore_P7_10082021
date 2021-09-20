@@ -20,6 +20,7 @@ export let allElementsLi;
 
 
 const filterArray = (Arr, Input) => {
+	console.log(Input)
 	return Arr.filter(e => e.toLowerCase().includes(Input.toLowerCase()))
 }
 
@@ -41,9 +42,6 @@ export const showPannel = (e) => {
 	//Display Pannel
 	myDatalist.classList.toggle('show');
 	myDatalist.classList.toggle('unshow');
-
-
-
 
 
 

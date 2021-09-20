@@ -44,7 +44,7 @@ const showFilter = (array ,selectbox) => {
 	array.map(
 		(recipe) => selectbox
 			.insertAdjacentHTML(
-				'beforeend',`<option class="col combobox-${selectbox.id}" value="${recipe}" >${recipe}</option>`,
+				'beforeend',`<option class=" combobox-${selectbox.id}" value="${recipe}" >${recipe}</option>`,
 			),
 	)
 
