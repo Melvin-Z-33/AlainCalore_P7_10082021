@@ -246,12 +246,21 @@ h1 {
 
 #result-cards {
     justify-content: center;
+    width: 100%;
+    position: absolute
 }
 
 
 @media screen and (max-width: 585px) {
     h2 {
         font-size: 10px;
+
+    }
+
+    #result-cards {
+
+        width: 102%;
+
     }
 
     .card,

@@ -5,139 +5,129 @@ import * as showcards from './show-cards.js';
 
 export const searchGeneral = async () => {
 
-	await app.fetchRecipes();
 
+	// ! TEST FONCTION DE TRI
+	let arrayAllDatas = await app.fetchRecipes();
+	let arraySortByRecipe
+
+	
+	let arraySortByIngredients 
+
+	const sortArray = (x,y) => {
+		if (x.name < y.name) {return -1;}
+		if (x.name > y.name) {return 1;}
+
+	}
+
+  arraySortByRecipe = arrayAllDatas.recipes.sort(sortArray);
+
+	
+	console.log(arraySortByRecipe.length) 
 	let arrayDeleteElementDuplicate = []
 	let data = [];
 	let element;
 
+let b = 'tar'
 
-	if (app.searchTerm.length === 0){
-		showcards.displayCards(app.bookOfRecipes.recipes)
 
-	} else if (app.searchTerm.length >= 3){
 
-		app.bookOfRecipes.recipes
-		.filter((recipe) => {
+//? CODE QUI MARCHE------------------
+if (app.searchTerm.length === 0){
+	showcards.displayCards(app.bookOfRecipes.recipes)
 
-			for (element of recipe.ingredients) {
-				if (element.ingredient.toLowerCase().includes(app.searchTerm.toLowerCase())){
-					data.push(recipe)
-				}
-			}
+} else if (app.searchTerm.length >= 3){
 
-			if (recipe["name"].toLowerCase().includes(app.searchTerm.toLowerCase())){
+	app.bookOfRecipes.recipes
+	.filter((recipe) => {
+
+		for (element of recipe.ingredients) {
+			if (element.ingredient.toLowerCase().includes(app.searchTerm.toLowerCase())){
 				data.push(recipe)
-			} else if (recipe["description"].toLowerCase().includes(app.searchTerm.toLowerCase())){
-			data.push(recipe)
 			}
-		})
+		}
 
-		arrayDeleteElementDuplicate = [...new Set(data)];
-		showcards.displayCards(arrayDeleteElementDuplicate)
-	};
+		if (recipe["name"].toLowerCase().includes(app.searchTerm.toLowerCase())){
+			data.push(recipe)
+		} else if (recipe["description"].toLowerCase().includes(app.searchTerm.toLowerCase())){
+		data.push(recipe)
+		}
+	})
+
+	arrayDeleteElementDuplicate = [...new Set(data)];
+	showcards.displayCards(arrayDeleteElementDuplicate)
+};
 }
+//?-----------------------------------------
 
 
 
 
-	//app.results.innerHTML = app.bookOfRecipes.recipes
-// 		.filter((recipe) => recipe.name.toLowerCase().includes(app.searchTerm.toLowerCase()))
-// 		.map((recipe) => {
-// 			let arrayOfIngredients = '';
-// 			for (element of recipe.ingredients) {
-// 				if (
-// 					element.hasOwnProperty('ingredient') &&
-// 					element.hasOwnProperty('quantity') &&
-// 					element.hasOwnProperty('unit')
-// 				) {
-// 					arrayOfIngredients += `<p><span class="lato-bold">${element.ingredient}</span> : ${element.quantity} ${element.unit}</p> `;
-// 				} else if (
-// 					element.hasOwnProperty('ingredient') &&
-// 					element.hasOwnProperty('quantity')
-// 				) {
-// 					arrayOfIngredients += `<p><span class="lato-bold">${element.ingredient}</span> : ${element.quantity} </p> `;
-// 				} else if (element.hasOwnProperty('ingredient')) {
-// 					arrayOfIngredients += `<p><span class="lato-bold">${element.ingredient}</span>  </p> `;
-// 				}
-// 			}
-
-// 			return `
-// 			<div class="card  col-sm-12 col-md-3 mx-4 ">
-// 					<img class="" alt="" src="http://via.placeholder.com/10">
-
-// 				<div class="card-body container">
-// 					<div class="row justify-content-between">
-// 						<h2  class="card-title lato-bold text-hidden col-8">${recipe.name}</h2>
-// 						<p class="card-timer lato-bold col-4 text-end"><i class="far fa-clock"></i> ${recipe.time} min</p>
-// 						<div class="card-ingredient  col-6">${arrayOfIngredients}</div>
-// 						<div class="card-text   col-6 text-start ">
-// 							<p class=" description lato-regular ">${recipe.description}</p>
-// 						</div>
-// 					</div>
-// 				</div>
-// 			</div>
-// 				`;
-// 		})
-// 		.join('');
-// };
-
-//? UTILISER PLUSIER FOIS LA FONCTION FILTRE POUR  LES INGREDIENTS, LES APPAREILS, LES USTENSILES?
 
 
 
-		// 	for (element in allValueinRecipe)
-		// 	if(recipe["name"] === app.searchTerm ){
-		// 		datax.push(recipe);
-		// 		return datax;
-		// 	 }
-		// });
-		
-		
 
-// app.bookOfRecipes.recipes.filter((recipe) =>{ 
-// if (recipe.name.toLowerCase().includes(app.searchTerm.toLowerCase()) ){
-// 	console.log(recipe)
+
+// const recherche = (array,val) => {
+// 	let gauche = 0
+// 	let droite = array.length -1
+// 	let milieu
+// 	let indice
+
+// 	console.log(milieu)
+
+
+
+// // const dichotomique = () => {
+
+// // 	while (gauche <= droite){
+
+// // 		milieu = Math.round((gauche + droite)/ 2)
 	
+		
+
+// // 					if (val == array[milieu].name){
+// // 						return  array[milieu].name
+// // 					} else if (val < array[milieu].name){
+// // 						droit = milieu -1
+// // 					}else{
+// // 						gauche = milieu +1
+// // 					}
+// // 				 return -1
+// // 				}
+// // 			}
+// 		// (array[milieu].name.localeCompare(val))
+// 		// 	  console.log("ok")
+// 		//    } else {
+// 		//  	  console.log("oki")
+// 		//    }
+
+
+
+// 		// }else if (milieu > val) {
+// 		// 	// on cherche en tre gauche et milieu -1
+// 		// 	droite = milieu -1 // limitue le tableau de droite
+
+// 		// } else  (gauche = milieu +1)
+// 		// 	//on cherche en tre milieu et droite
+
+// 		// 	return -1 // PAs present dans le tableau
 // 	}
+
+// 		}}
+
+
+// 	recherche(arraySortByRecipe, b)
+	
 // }
-// )
 
 
-// arrayDeleteElementDuplicate.map((recipe) => {
-// 	let arrayOfIngredients = '';
-// 	for (element of recipe.ingredients) {
-// 		if (
-// 			element.hasOwnProperty('ingredient') &&
-// 			element.hasOwnProperty('quantity') &&
-// 			element.hasOwnProperty('unit')
-// 		) {
-// 			arrayOfIngredients += `<p><span class="lato-bold">${element.ingredient}</span> : ${element.quantity} ${element.unit}</p> `;
-// 		} else if (
-// 			element.hasOwnProperty('ingredient') &&
-// 			element.hasOwnProperty('quantity')
-// 		) {
-// 			arrayOfIngredients += `<p><span class="lato-bold">${element.ingredient}</span> : ${element.quantity} </p> `;
-// 		} else if (element.hasOwnProperty('ingredient')) {
-// 			arrayOfIngredients += `<p><span class="lato-bold">${element.ingredient}</span>  </p> `;
-// 		}
-// 	}
 
-// 	return `
-// 	<div class="card  col-sm-12 col-md-3 mx-4 ">
-// 			<img class="" alt="" src="http://via.placeholder.com/10">
 
-// 		<div class="card-body container">
-// 				<p class="card-timer lato-bold col-4 text-end"><i class="far fa-clock"></i> ${recipe.time} min</p>
-// 			<div class="row justify-content-between">
-// 				<h2  class="card-title lato-bold text-hidden col-8">${recipe.name}</h2>
-// 				<div class="card-ingredient  col-6">${arrayOfIngredients}</div>
-// 				<div class="card-text   col-6 text-start ">
-// 					<p class=" description lato-regular ">${recipe.description}</p>
-// 				</div>
-// 			</div>
-// 		</div>
-// 	</div>
-// 		`;
-// })
-// .join('');
+
+
+
+// ! FIN DE FONCTION TEST
+
+
+
+
