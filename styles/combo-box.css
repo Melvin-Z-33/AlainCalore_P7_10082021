@@ -95,6 +95,15 @@ input::placeholder {
     padding-left: 13px;
 }
 
+
+
+#ingredient {
+    overflow-y: hidden;
+    color: #fff;
+    column-count: 2;
+    column-width: 100px;
+}
+
 .combobox_datalist {
     z-index: 1000;
     position: absolute;
@@ -151,15 +160,7 @@ input::placeholder {
 }
 
 
-#ingredient {
-    overflow-y: hidden;
-    width: 1400px;
-    height: 400px;
-    height: 400px;
-    color: #fff;
-    column-count: 2;
-    column-width: 100px;
-}
+
 
 
 /* class custom  added by javascript */

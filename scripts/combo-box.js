@@ -56,9 +56,9 @@ export const showPannel = (e) => {
 
 
 		if (e.path){
-			e.path[1].style.width = "300px";
+			e.path[1].style.width = "667px";
 		}else if (e.composedPath()){
-			e.composedPath()[1].style.width = "300px";
+			e.composedPath()[1].style.width = "667px";
 		}
 
 
