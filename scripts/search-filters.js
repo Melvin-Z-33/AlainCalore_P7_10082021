@@ -5,31 +5,26 @@ import * as comboBox from './combo-box.js';
 export let allOptions = [];
 
 
-	const deleteElementInPanel = (comboBoxOptions) => {
-				let allFilters = document.querySelectorAll(".filter")
-				let elementSelectioned;
-				allFilters.forEach(((element) => {
-					allOptions =  document.querySelectorAll(comboBoxOptions);
 
-					for (elementSelectioned of allOptions) {
-						if (element.textContent.toLowerCase() === elementSelectioned.textContent.toLowerCase()) {
-							elementSelectioned.classList.add('unshow');
-						}
-					}
-				}))
+const deleteElementInPanel = (comboBoxOptions) => {
+	let allFilters = document.querySelectorAll(".filter")
+	let elementSelectioned;
+
+	allFilters.forEach(((element) => {
+		allOptions =  document.querySelectorAll(comboBoxOptions);
+
+		for (elementSelectioned of allOptions) {
+			if (element.textContent.toLowerCase() === elementSelectioned.textContent.toLowerCase()) {
+				elementSelectioned.classList.add('unshow');
 			}
-
-
-
-
-
-
+		}
+	}))
+};
 
 
 
 export const searchWithFilter = async (array, inputBox) => {
 	await app.fetchRecipes();
-
 	let displayArrayfromIngredients = [];
 	let array1 = [];
 
@@ -79,7 +74,7 @@ export const searchWithFilter = async (array, inputBox) => {
 			console.log(`veuillez sélectionner des filtres`);
 		}
 
-	} else if ( inputBox == comboBox.inputAppliance){
+	} else if ( inputBox == comboBox.inputAppliance) {
 		//FILTER FOR APPLIANCE
 		switch (array.length) {
 			case 1:
@@ -152,7 +147,6 @@ export const searchWithFilter = async (array, inputBox) => {
 			default:
 				console.log(`veuillez sélectionner des filtres`);
 		}
-
 	}
 };
 

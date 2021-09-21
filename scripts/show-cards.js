@@ -1,4 +1,3 @@
-import * as app from './app.js';
 import * as comboBox from './combo-box.js';
 
 
@@ -9,17 +8,16 @@ const pannelUstensils = document.getElementById('ustensile');
 export let totalofIngredients = [];
 export let totalofAppliances = [];
 export let totalofUstensils = [];
-let ingredientToSelect
+let ingredientToSelect;
 
 
 
-//* ---------- FILTER MANAGEMENT  ----------*
-const makeElementsLiClickable = (selectbox) => {
-
+//FILTER MANAGEMENT
+export const makeElementsLiClickable = (selectbox) => {
 
 	switch (selectbox.id) {
 		case 'ingredient':
-			let storageIngredientFilters = JSON.parse(sessionStorage.getItem('stockIngredientFilters')); 
+			let storageIngredientFilters = JSON.parse(sessionStorage.getItem('stockIngredientFilters'));
 			ingredientToSelect =  document.querySelectorAll('.combobox-ingredient');
 			comboBox.toSelectFilter(ingredientToSelect, "bg-primary",storageIngredientFilters, 'stockIngredientFilters',"element-selected-ingredient",comboBox.inputIngredient);
 			break;
@@ -38,14 +36,12 @@ const makeElementsLiClickable = (selectbox) => {
 }
 
 
-const showFilter = (array ,selectbox) => {
-
+export const showFilter = (array ,selectbox) => {
 
 	array.map(
 		(recipe) => selectbox
 			.insertAdjacentHTML(
-				'beforeend',`<option class=" combobox-${selectbox.id}" value="${recipe}" >${recipe}</option>`,
-			),
+				'beforeend',`<option class=" combobox-${selectbox.id}" value="${recipe}" >${recipe}</option>`),
 	)
 
 	switch (selectbox.id) {
@@ -69,13 +65,13 @@ const showFilter = (array ,selectbox) => {
 
 
 
-//* ---------- CARDS MANAGEMENT ----------*
+//CARDS MANAGEMENT
 export const displayCards =  (arrayOfRecipe) => {
 
-	let ingredientsForCard =''
 	let arrayOfIngredients = [];
 	let arrayOfAppliances = [];
 	let arrayOfUstensils = [];
+	let ingredientsForCard =''
 
 
 	results.innerHTML = '';

@@ -40,6 +40,8 @@
 		<title>les petits plats</title>
 	</head>
 
+
+
 	<body class="mx-auto">
 		<!---------- HEADER SECTION ---------->
 		<header class="mt-2 d-flex flex-column align-item-center">
@@ -60,13 +62,10 @@
 
 		<!---------- MAIN SECTION ---------->
 		<main>
-			<div class="main-header mb-5 d-flex  flex-wrap ">
+			<section class="main-header mb-5 d-flex  flex-wrap ">
 
 				<div class="container-fluid-mt5">
-					<div
-						class="select"
-						aria-expanded="false"
-					>
+					<div class="select" role="combobox" aria-expanded="false">
 						<ul id="element-selected-ingredient" class="d-flex justify-content-start element-selected"></ul>
 						<div class="main-header__box-filter">
 							<input
@@ -88,11 +87,7 @@
 				</div>
 
 				<div class="container-fluid-mt5">
-					<div
-						class="select"
-						role="combobox"
-						aria-expanded="false"
-					>
+					<div class="select" role="combobox" aria-expanded="false">
 						<ul id="element-selected-appliance" class="d-flex justify-content-start element-selected"></ul>
 						<div class="main-header__box-filter">
 							<input
@@ -114,11 +109,7 @@
 				</div>
 
 				<div class="container-fluid-mt5">
-					<div
-						class="select"
-						role="combobox"
-						aria-expanded="false"
-					>
+					<div class="select" role="combobox" aria-expanded="false">
 						<ul id="element-selected-ustensile" class="d-flex justify-content-start element-selected"></ul>
 						<div class="main-header__box-filter">
 							<input
@@ -131,7 +122,6 @@
 								name="cc1"
 								style="border-radius: 5px 5px 0px 0px"
 								tabindex="-1"
-
 							/>
 							<i  class=" arrow fas fa-chevron-down text-white"></i>
 						</div>
@@ -139,15 +129,10 @@
 					<datalist data-selectbox="Ustensiles" id="ustensile" class="combobox_datalist bg-danger  unshow">
 					</datalist>
 				</div>
-			</div>
-
-			
-			<section
-				id="result-cards"
-				class="row d-flex   "
-			>
 			</section>
-	
+
+			<section id="result-cards" class="row d-flex">
+			</section>
 		</main>
 
 		<!-- JavaScript Bundle with Popper - Bootstrap -->

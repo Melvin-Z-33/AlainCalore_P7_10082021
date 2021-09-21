@@ -1,6 +1,14 @@
+/*************** GENERAL ***************/
+
 option {
     color: #fff;
     cursor: pointer;
+    width: 112px;
+    margin-right: 59px;
+    margin-bottom: 15px;
+    text-align: left;
+    flex-grow: 1;
+    font-size: 18px;
 }
 
 a {
@@ -29,9 +37,7 @@ li {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
 }
-
 
 input::placeholder {
     height: 22px;
@@ -49,7 +55,24 @@ input::placeholder {
 }
 
 
+/* class custom  added by javascript */
 
+.show {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.unshow {
+    display: none;
+}
+
+.margin-comboBox-top {
+    margin-top: 50px;
+}
+
+.margin-comboBox-normal {
+    margin-top: 0px;
+}
 
 .opacituy {
     color: rgba(220, 220, 220, 0.698)
@@ -68,7 +91,8 @@ input::placeholder {
 }
 
 
-/* Combo-box General */
+
+/*************** COMBO-BOX  ***************/
 
 .main-header {
     gap: 30px
@@ -95,36 +119,14 @@ input::placeholder {
     padding-left: 13px;
 }
 
-
-
-/* #ingredient {
-    overflow-y: hidden;
-    color: #fff;
-    column-count: 2;
-    column-width: 100px;
-} */
-
 .combobox_datalist {
     z-index: 1000;
     position: absolute;
     max-height: 397px;
     height: auto;
     width: 667px;
-    /* flex-direction: column; */
     padding: 0 17px;
     overflow: hidden;
-
-
-}
-
-option {
-    width: 112px;
-    margin-right: 59px;
-    margin-bottom: 15px;
-    text-align: left;
-    flex-grow: 1;
-    font-size: 18px;
-
 }
 
 .combo-box-open {
@@ -132,16 +134,13 @@ option {
     width: 667px;
     left: 98px;
     top: 238px;
-
 }
-
 
 .fa-chevron-down {
     position: absolute;
     top: 26px;
     right: 12px;
     font-size: 21px;
-
 }
 
 .reverse-chevron {
@@ -150,8 +149,7 @@ option {
 
 
 
-/* FILTRE */
-
+/* FILTRE  */
 
 .select {
     position: relative;
@@ -174,29 +172,6 @@ option {
 
 
 
-
-
-/* class custom  added by javascript */
-
-.show {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.unshow {
-    display: none;
-}
-
-.margin-comboBox-top {
-    margin-top: 50px;
-}
-
-.margin-comboBox-normal {
-    margin-top: 0px;
-}
-
-
-
 /*************** MEDIA QUERIES COMBO-BOX  ***************/
 
 @media screen and (max-width: 1400px) {
@@ -208,7 +183,6 @@ option {
     .main-header {
         justify-content: center;
     }
-
 }
 
 @media screen and (max-width: 700px) {
@@ -216,22 +190,20 @@ option {
     .main-header {
         align-content: center;
         flex-direction: column;
-
     }
 
     .color2 {
-        width: 466px;
-        ;
-        margin-left: 15%;
+        width: 320px;
+        margin-left: 50%;
+        transform: translate(-50%);
+
+
     }
 
     .combobox_datalist {
-        width: 466px;
-        margin-left: 14.5%;
+        width: 320px;
+        left: 50%;
+        transform: translate(-50%);
+
     }
-
-
-
-
-
 }
