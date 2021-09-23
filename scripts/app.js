@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as searchGeneral from './search-general.js';
-
+import * as showcards from './show-cards.js';
 
 export const headerInput = document.getElementById('header__input');
 export const searchInput = document.getElementById('search');
@@ -17,17 +17,67 @@ export const fetchRecipes = async () => {
 	return (bookOfRecipes = await fetch('./recipes.json').then((res) => res.json()));
 };
 
-searchGeneral.searchGeneral();
+
 
 //SEARCH WITH INPUT GENERAL
-headerInput.addEventListener('input', (e) => {
+headerInput.addEventListener('input', async (e) => {
+	let recipes
+	let recipe
+	await fetchRecipes();
+	console.log(bookOfRecipes.recipes)
+
 	searchTerm = e.target.value;
-	searchGeneral.searchGeneral();
+
+	if (searchTerm.length >= 3){
+		searchGeneral.searchGeneral(bookOfRecipes.recipes, searchTerm);
+
+		showcards.displayCards(searchGeneral.searchGeneral(bookOfRecipes.recipes, searchTerm));
+
+	} else {
+		showcards.displayCards(bookOfRecipes.recipes)
+	}
+
 });
 
-window.onload = () =>{
-	sessionStorage.clear();
+window.onload = async  () =>{
+await fetchRecipes();
+showcards.displayCards(bookOfRecipes.recipes)
+sessionStorage.clear();
 }
+
+		// ! TEST
+		// console.log("go")
+		// for (recipes of bookOfRecipes.recipes){
+		// 	console.log(recipes)
+		// 	for (ingredient of recipes.ingredients) {
+		// 		ingredients.sort((a, b) => a.localeCompare(b))
+		// 		let test=[];
+
+
+		// 		*** */ 
+		// 		console.log(ingredient)
+			
+				
+						// 	if (element.ingredient.toLowerCase().includes(app.searchTerm.toLowerCase())){
+						// 		data.push(recipe)
+						// 	}
+						// }
+			
+						// if (recipe["name"].toLowerCase().includes(app.searchTerm.toLowerCase())){
+						// 	data.push(recipe)
+						// } else if (recipe["description"].toLowerCase().includes(app.searchTerm.toLowerCase())){
+						// data.push(recipe)
+						// }
+				
+				
+
+
+
+			// ! FIN DE TEST
+
+		// 	}
+		// }
+	
 
 
 
