@@ -4,7 +4,7 @@ import * as showcards from './show-cards.js';
 
 
 export const searchGeneral = async () => {
-	let arrayDeleteElementDuplicate = []
+	let arrayDeleteElementDuplicate = [];
 	let data = [];
 	let element;
 
@@ -13,7 +13,7 @@ export const searchGeneral = async () => {
 
 
 	if (app.searchTerm.length === 0) {
-		showcards.displayCards(app.bookOfRecipes.recipes)
+		showcards.displayCards(app.bookOfRecipes.recipes);
 
 	} else if (app.searchTerm.length >= 3) {
 
@@ -22,19 +22,19 @@ export const searchGeneral = async () => {
 
 			for (element of recipe.ingredients) {
 				if (element.ingredient.toLowerCase().includes(app.searchTerm.toLowerCase())){
-					data.push(recipe)
+					data.push(recipe);
 				}
 			}
 
 			if (recipe["name"].toLowerCase().includes(app.searchTerm.toLowerCase())){
 				data.push(recipe)
 			} else if (recipe["description"].toLowerCase().includes(app.searchTerm.toLowerCase())){
-			data.push(recipe)
+			data.push(recipe);
 			}
 		})
 
 		arrayDeleteElementDuplicate = [...new Set(data)];
-		showcards.displayCards(arrayDeleteElementDuplicate)
+		showcards.displayCards(arrayDeleteElementDuplicate);
 	};
 };
 
