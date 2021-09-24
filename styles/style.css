@@ -217,6 +217,10 @@ h1 {
     width: 80px
 }
 
+.message-notfound {
+    white-space: pre-wrap;
+}
+
 /*  MEDIA QUERIES CARDS SECTION */
 
 @media screen and (max-width: 585px) {

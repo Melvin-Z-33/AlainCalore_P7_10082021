@@ -1,7 +1,7 @@
 import * as searchGeneral from './search-general.js';
 import * as showcards from './show-cards.js';
 import * as searchFilters from './search-filters.js';
-
+import * as app from './app.js';
 
 export const inputIngredient = document.getElementById('box_ingredients');
 export const inputAppliance = document.getElementById('box_appliance');
@@ -138,7 +138,10 @@ export const toSelectFilter =  (filters, color, arrayFilter, placeStorage,placeF
 
 			//Sort with Li deleted
 			allElementsLi.forEach((elementLi) => {
-				elementLi.addEventListener('click', () => {
+				elementLi.addEventListener('click', async () => {
+
+
+					await app.fetchRecipes();
 
 					if (arrayFilter.length === 0){
 						searchGeneral.searchGeneral();
@@ -151,9 +154,9 @@ export const toSelectFilter =  (filters, color, arrayFilter, placeStorage,placeF
 						sessionStorage.setItem(placeStorage, JSON.stringify(arrayFilter));
 						elementLi.remove();
 							if (arrayFilter.length === 0){
-								searchGeneral.searchGeneral();
+								showcards.displayCards(app.bookOfRecipes.recipes)
+								//searchGeneral.searchGeneral(app.bookOfRecipes.recipes,'');
 								// showcards.showAllIngredients();
-							console.log(arrayFilter)
 							elementLi.remove();
 							document.querySelector('main').classList.remove('margin-comboBox-top');
 							document.querySelector('main').classList.add('margin-comboBox-normal');
