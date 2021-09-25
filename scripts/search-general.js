@@ -1,7 +1,7 @@
 import * as app from './app.js';
 import * as showcards from './show-cards.js';
 
-
+const results = document.getElementById('result-cards');
 
 export const searchGeneral = async () => {
 	let arrayDeleteElementDuplicate = [];
@@ -34,7 +34,14 @@ export const searchGeneral = async () => {
 		})
 
 		arrayDeleteElementDuplicate = [...new Set(data)];
+
+		if  (arrayDeleteElementDuplicate.length == 0){
+			results.innerHTML = '';
+			results.insertAdjacentHTML('beforeend', `<div class="message-notfound lato-bold text-center">
+			« Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson »...</div>`);
+			}else{
 		showcards.displayCards(arrayDeleteElementDuplicate);
+			}
 	};
 };
 
